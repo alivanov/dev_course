@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2.3</title>
+
+    <link rel="shortcut icon" sizes="16x16" href="/favicon.jpg" type="image/jpg">
+</head>
+<body>
+    <h1>Declarative vs Imperative Programming</h1>
+
+    <p>
+        Write a function which returns a summ of a given array
+    </p>
+    
+    <script type="text/javascript">
+        //imperative
+        function getSumDecl(arr) {
+            var res = 0;
+            for (var i = 0; i < arr.length; i++) {
+                res += arr[i];
+            }
+            return res;
+        }
+
+        //declarative
+        function getSummImp(arr) {
+            return arr.reduce(function summator(memo, item) {
+                return memo += item;
+            }, 0)
+        }
+
+        console.log(getSumDecl([2, 4, 6, 8, 10]));
+        console.log(getSummImp([2, 4, 6, 8, 10]));
+    </script>
+</body>
+</html>

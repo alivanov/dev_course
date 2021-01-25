@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2.4</title>
+
+    <link rel="shortcut icon" sizes="16x16" href="/favicon.jpg" type="image/jpg">
+</head>
+<body>
+    <h1>Test Driven Development</h1>
+
+    <p>
+        Write a function which consumes 1 parameter N (N >= 0) and return the summ of 1 to N (inclusive)
+    </p>
+    
+    <script type="text/javascript">
+        const getSumm = (N) => {
+            let res = 0;
+            for (let i = 0; i <= N; i++) {
+                res += i;
+            }
+            return res;
+        }
+
+        const getSummFast = (n) => {
+            return (n/2) * (n+1);
+        }
+
+        //O(n)
+        console.assert(getSumm(3) === 6, 'Actual result: %s', getSumm(3));
+        console.assert(getSumm(4) === 10, 'Actual result: %s', getSumm(4));
+        console.assert(getSumm(0) === 0, 'Actual result: %s', getSumm(0));
+        console.assert(getSumm() === 0, 'Actual result: %s', getSumm());
+        console.assert(getSumm('A') === 0, 'Actual result: %s', getSumm('A'));
+
+        //O(1)
+        console.assert(getSummFast(3) === 6, 'Actual result: %s', getSummFast(3));
+        console.assert(getSummFast(4) === 10, 'Actual result: %s', getSummFast(4));
+        console.assert(getSummFast(0) === 0, 'Actual result: %s', getSummFast(0));
+        console.assert(isNaN(getSummFast()), 'Actual result: %s', getSummFast());
+        console.assert(isNaN(getSummFast('A')), 'Actual result: %s', getSummFast('A'));
+    </script>
+</body>
+</html>
