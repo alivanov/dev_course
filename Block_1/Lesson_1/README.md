@@ -16,7 +16,7 @@
 
 4. Настройка простого http сервера на python
     - https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server
-    - [Hello World!](https://github.com/alivanov/dev_course/tree/main/Block_1/Lesson_1/lesson_1_4)
+    - [Hello World!](https://github.com/alivanov/dev_course/tree/main/Block_1/Lesson_1/Lesson_1_4)
 
     ```
         $ python --version
