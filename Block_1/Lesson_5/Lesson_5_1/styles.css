@@ -1,0 +1,37 @@
+body {
+    background: #ccc;
+}
+
+.wrapper {
+    padding: 0 20px;
+}
+
+.mt-sm {
+    margin-top: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.flex-item {
+    background-color: rgb(0, 243, 223);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    flex: 1 20%;
+    margin: 1rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
+}
+
+.grid-item {
+    background-color: yellow;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
