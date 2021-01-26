@@ -87,7 +87,7 @@
     </div>
 
     <div class="wrapper">
-        <iframe id="inlineFrameExample"
+        <iframe id="sameOriginIframe"
             title="Inline Frame Example"
             width="300"
             height="200"
@@ -96,7 +96,7 @@
     </div>
 
 
-    <script type="text/javascript">
+    <script>
         function onSubmit(e) {
             e.preventDefault();
             var formData = Object.fromEntries(new FormData(event.target))
