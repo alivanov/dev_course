@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3.2</title>
+
+    <link rel="shortcut icon" sizes="16x16" href="/myicon.ico" type="image/x-icon">
+
+    
+    <link rel="stylesheet/less" type="text/css" href="/styles.less" />
+    <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
+</head>
+<body>
+    <h1>Lists</h1>
+    
+    <h2>Unordered HTML List</h2>
+
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+
+    <h2>Ordered HTML List</h2>
+
+    <ol>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+
+    <h2>HTML Description Lists</h2>
+
+    <dl>
+        <dt>Coffee</dt>
+            <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+            <dd>- white cold drink</dd>
+    </dl>
+
+
+    <h1>Input types (+ form)</h1>
+
+    <div class="wrapper">
+        <a href="https://www.w3schools.com/tags/tag_input.asp" target="_blank">Full input types list</a>
+    </div>
+
+
+    <form id="form">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname">
+        <br><br>
+
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname">
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="5" cols="33"></textarea>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1>Iframe</h1>
+
+    <div class="wrapper">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options" target="_blank" class="text-danger">X-Frame-Options</a>
+    </div>
+
+    <div class="wrapper">
+        <iframe id="inlineFrameExample"
+            title="Inline Frame Example"
+            width="300"
+            height="200"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+        </iframe>
+    </div>
+
+    <div class="wrapper">
+        <iframe id="inlineFrameExample"
+            title="Inline Frame Example"
+            width="300"
+            height="200"
+            src="https://www.google.com">
+        </iframe>
+    </div>
+
+
+    <script type="text/javascript">
+        function onSubmit(e) {
+            e.preventDefault();
+            var formData = Object.fromEntries(new FormData(event.target))
+            console.log('The following data will be submitted!', formData);
+        }
+
+        document.getElementById('form').onsubmit = onSubmit;
+    </script>
+</body>
+</html>
