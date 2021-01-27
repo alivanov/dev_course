@@ -1,25 +1,42 @@
 body {
-    background-color: #abcabc;
+    background-color: #87ac58;
+}
 
-    h1 {
-        color: blue;
+.b-heading {
+    color: blue;
+}
+
+.b-heading--level_alpha {
+    color: yellow;
+}
+
+.b-heading--underlined {
+   text-decoration: underline;
+}
+
+.b-wrapper {
+    padding: 20px;
+
+    &__form {
+        margin-top: 30px;
     }
 
-    .wrapper {
-        padding: 20px;
+    &__image {
+        margin-top: 25px;
+        width: 90%;
+    }
+}
+
+.b-wrapper__link {
+    font-size: 20px;
+
+    &--important {
+        color: red;
+        font-weight: bold;
     }
 
-    a {
-        font-size: 20px;
-
-        &.text-danger {
-            color: red;
-            font-weight: bold;
-        }
-
-        &.text-success {
-            color: green;
-            font-weight: bold;
-        }
+    &--info {
+        color: maroon;
+        font-weight: bold;
     }
 }

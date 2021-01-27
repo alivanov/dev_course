@@ -12,76 +12,89 @@
     <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
 </head>
 <body>
-    <h1>Lists</h1>
+    <h1 class="b-heading">BEM</h1>
+
+    <div class="b-wrapper">
+        <a href="https://css-tricks.com/bem-101" target="_blank" class="b-wrapper__link">Block, Element, Modifier methodology</a>
+        <br>
+        <img class="b-wrapper__image" src="/bem.png" alt="...">
+    </div>
+
+
+    <h1 class="b-heading">Lists</h1>
     
-    <h2>Unordered HTML List</h2>
+    
+    <div class="b-wrapper">
+        <h2 class="b-heading b-heading__level_alpha">Unordered HTML List</h2>
 
-    <ul>
-        <li>Coffee</li>
-        <li>Tea</li>
-        <li>Milk</li>
-    </ul>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+    
+        <h2 class="b-heading b-heading--level_alpha">Ordered HTML List</h2>
+    
+        <ol>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol>
+    
+        <h2 class="b-heading b-heading--level_alpha b-heading--underlined">HTML Description Lists</h2>
+    
+        <dl>
+            <dt>Coffee</dt>
+                <dd>- black hot drink</dd>
+            <dt>Milk</dt>
+                <dd>- white cold drink</dd>
+        </dl>
 
-    <h2>Ordered HTML List</h2>
-
-    <ol>
-        <li>Coffee</li>
-        <li>Tea</li>
-        <li>Milk</li>
-    </ol>
-
-    <h2>HTML Description Lists</h2>
-
-    <dl>
-        <dt>Coffee</dt>
-            <dd>- black hot drink</dd>
-        <dt>Milk</dt>
-            <dd>- white cold drink</dd>
-    </dl>
-
-
-    <h1>Input types (+ form)</h1>
-
-    <div class="wrapper">
-        <a href="https://www.w3schools.com/tags/tag_input.asp" target="_blank">Full input types list</a>
     </div>
 
 
-    <form id="form">
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname">
-        <br><br>
 
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname">
-        <br><br>
+    <h1 class="b-heading">Input types (+ form)</h1>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-        <br><br>
+    <div class="b-wrapper">
+        <a href="https://www.w3schools.com/tags/tag_input.asp" target="_blank" class="b-wrapper__link">Full input types list</a>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <br><br>
-
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="5" cols="33"></textarea>
-        <br><br>
-
-        <input type="submit" value="Submit">
-    </form>
-
-    <h1>Iframe</h1>
-
-    <div class="wrapper">
-        <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options" target="_blank" class="text-danger">X-Frame-Options</a>
+        <form id="form" class="b-wrapper__form">
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname">
+            <br><br>
+    
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname">
+            <br><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <br><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <br><br>
+    
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5" cols="33"></textarea>
+            <br><br>
+    
+            <input type="submit" value="Submit">
+        </form>
     </div>
 
-    <div class="wrapper">
+    <h1 class="b-heading">Iframe</h1>
+
+    <div class="b-wrapper">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options" target="_blank" class="b-wrapper__link b-wrapper__link--important">X-Frame-Options</a>
+    </div>
+
+    <div class="b-wrapper">
         <img src="/x-frame-options.png" alt="...">
     </div>
 
-    <div class="wrapper">
+    <div class="b-wrapper">
         <iframe id="inlineFrameExample"
             title="Inline Frame Example"
             width="300"
@@ -90,7 +103,7 @@
         </iframe>
     </div>
 
-    <div class="wrapper">
+    <div class="b-wrapper">
         <iframe id="sameOriginIframe"
             title="Inline Frame Example"
             width="300"
@@ -99,8 +112,8 @@
         </iframe>
     </div>
 
-    <div class="wrapper">
-        <a href="https://validator.w3.org/nu/#textarea" target="_blank" class="text-success">And finally don't forget to validate your html here...</a>
+    <div class="b-wrapper">
+        <a href="https://validator.w3.org/nu/#textarea" target="_blank" class="b-wrapper__link b-wrapper__link--info">And finally don't forget to validate your html here...</a>
     </div>
 
 
