@@ -1,3 +1,27 @@
 strong {
     color: red;
 }
+
+.wrapper {
+    padding: 10px;
+}
+
+.css-selectors-demo p {
+    color: green;
+}
+
+.css-selectors-demo .paragraph {
+    color: red;
+}
+
+.css-selectors-demo #paragraph2 {
+    color: grey;
+}
+
+.css-selectors-demo .span {
+    color: cornflowerblue;
+}
+
+.css-selectors-demo .span {
+    color: rebeccapurple;
+}
