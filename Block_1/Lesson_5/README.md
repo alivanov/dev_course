@@ -11,7 +11,8 @@
     - https://www.w3schools.com/css/css3_animations.asp
     - https://vk.com/wall-101965347_225669?hash=8bb9592fc2a24e340c
 
-3. Ключевое слово auto в CSS
+3. Центрирование элементов и ключевое слово auto в CSS
+    - https://css-tricks.com/centering-css-complete-guide
     - https://habr.com/ru/company/ruvds/blog/494716
 
 4. Bootstrap, materializecss

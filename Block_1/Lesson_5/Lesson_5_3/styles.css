@@ -1,0 +1,20 @@
+.wrapper {
+    padding: 0 20px;
+}
+
+.container {
+    margin: 25px 0;
+    width: 500px;
+    height: 500px;
+    background-color: darkcyan;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.centered {
+    margin: 0 auto;
+}
