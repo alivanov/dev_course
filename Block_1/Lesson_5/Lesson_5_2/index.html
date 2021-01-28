@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5.2</title>
+
+    <link rel="shortcut icon" sizes="16x16" href="/myicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css"></link>
+</head>
+<body>
+    <h1>Animations</h1>
+
+    <div class="wrapper">
+        <p>
+            Check 
+            <strong>
+                <a href="https://caniuse.com/?search=keyframes" target="_blank">
+                    "Can i use"
+                </a>
+            </strong> 
+            ! The examples bellow will not work in IE 9 or earlier...
+        </p>
+
+        <p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation" target="_blank">
+                Learn more 
+            </a>
+        </p>
+    </div>
+
+    <h2>Simple background transition</h2>
+
+    <div class="wrapper">
+        <div class="box bg-animated"></div>
+        <div class="box bg-animated-2"></div>
+
+        <p><b>Note:</b> When an animation is finished, it changes back to its original style.</p>
+    </div>
+
+    <h2>Position transition with delay</h2>
+
+    <div class="wrapper">
+        <div class="box pos-animated"></div>
+    </div>
+
+    <h3>Set How Many Times an Animation Should Run</h3>
+
+    <div class="wrapper">
+        <div class="box pos-animated pos-animated--twice"></div>
+        <div class="box pos-animated pos-animated--infinite"></div>
+    </div>
+
+    <h2>Specify the Speed Curve of the Animation</h2>
+
+    <div class="wrapper">
+        <div id="div1" class="pos-animated--timing-func">linear</div>
+        <div id="div2" class="pos-animated--timing-func">ease</div>
+        <div id="div3" class="pos-animated--timing-func">ease-in</div>
+        <div id="div4" class="pos-animated--timing-func">ease-out</div>
+        <div id="div5" class="pos-animated--timing-func">ease-in-out</div>
+    </div>
+</body>
+</html>
