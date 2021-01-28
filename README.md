@@ -1,5 +1,8 @@
 # Intspirit DEV course
 
+
+![Alt text](./intro.jpg "Intro")
+
 ### Цель курса: 
 1. Знакомство с теорией разработки ПО
 2. JavaScript - от основ к глубокому пониманию
