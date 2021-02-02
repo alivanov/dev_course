@@ -6,6 +6,10 @@
     margin-top: 10px;
 }
 
+.text-danger {
+    color: red;
+}
+
 button {
     background-color: cornflowerblue;
     color: white;

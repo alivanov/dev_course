@@ -27,6 +27,37 @@
         <a href="https://bitsofco.de/what-is-the-shadow-dom" target="_blank">Shadow DOM</a>
     </div>
 
+    <h2>Shadow DOM example</h2>
+    <div class="wrapper">
+
+        <strong class="text-danger">Do you remember iframes? Today we're going to learn alternatives...</strong>
+
+        <div>
+            <img  src="/chrome-settings.png" alt="settings" style="width: 800px;">
+            <br>
+            <br>
+            <img  src="/turn_shdow_dom_on.png" alt="settings" style="width: 800px;">
+        </div>
+
+        <div class="mt-sm">
+            <strong>Example 1</strong>
+            <div>
+                <input type="range">
+            </div>
+        </div>
+
+        <div class="mt-sm">
+            <strong>Example 2</strong>
+            <div>
+                <span class="shadow-host">
+                    <a href="https://twitter.com/alex_ivan0v">
+                       Follow @alex_ivan0v
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
     <h2>Modifying DOM with JS</h2>
     <a href="https://htmldom.dev" target="_blank"> https://htmldom.dev</a>
     <br>
@@ -65,6 +96,7 @@
 
         <div class="mt-sm" onclick="alert('Hello!')">
             <strong>Example 3 (stopPropagation)</strong>
+            <br>
             <button onclick="event.stopPropagation()">Click me!</button>
         </div>
 
@@ -99,7 +131,6 @@
             <button id="btn-event-loop-start">Start the Event loop</button>
         </div>
     </div>
-
 
     <script type="text/javascript" src="/index.js"></script>
 </body>
