@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2.6</title>
+
+    <link rel="shortcut icon" sizes="16x16" href="/myicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css"></link>
+</head>
+<body>
+    <h1>DOM, Events, Environment, Event Loop</h1>
+
+    <div class="wrapper">
+        <i>The Document Object Model is an object-based representation of an HTML document and an interface to manipulating that object</i>
+        <br>
+        <a href="https://bitsofco.de/what-exactly-is-the-dom" target="_blank">DOM</a>
+        <br>
+        <br>
+        <i>The virtual DOM is a tool that enables us to interface with DOM elements in an easier and more performant way</i>
+        <br>
+        <a href="https://bitsofco.de/understanding-the-virtual-dom" target="_blank">Virtual DOM</a>
+        <br>
+        <br>
+        <i>The shadow DOM can be thought of as a “lite” version of the DOM. It is also an object-based representation of HTML elements, but not of a full standalone document</i>
+        <br>
+        <a href="https://bitsofco.de/what-is-the-shadow-dom" target="_blank">Shadow DOM</a>
+    </div>
+
+    <h2>Modifying DOM with JS</h2>
+    <a href="https://htmldom.dev" target="_blank"> https://htmldom.dev</a>
+    <br>
+    <a href="https://caniuse.com" target="_blank"> https://caniuse.com</a>
+
+    <div class="wrapper">
+        <ul class="list">
+            <li class="list__item">List item</li>
+        </ul>
+        
+        <button id="btn-list-modify" class="mt-sm" onclick="modifyList(event)">Click me</button>
+    </div>
+
+    <h2>Events</h2>
+    <a href="https://learn.javascript.ru/bubbling-and-capturing" target="_blank">Bubbling and capturing</a>
+
+    <div class="wrapper events-demo-wrapper">
+        <div class="mt-sm">
+            <strong>Example 1</strong>
+            <form class="my-form"onclick="alert('form')">FORM
+                <div onclick="alert('div')" class="my-div">DIV
+                    <p onclick="alert('p')" class="my-paragraph">P</p>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="mt-sm">
+            <strong>Example 2</strong>
+            <form id="form" class="my-form">FORM
+                <div class="my-div">DIV
+                    <p class="my-paragraph">P</p>
+                </div>
+            </form>
+        </div>
+
+        <div class="mt-sm" onclick="alert('Hello!')">
+            <strong>Example 3 (stopPropagation)</strong>
+            <button onclick="event.stopPropagation()">Click me!</button>
+        </div>
+
+        <div class="mt-sm capturing-demo">
+            <strong>Example 4 (capturing)</strong>
+            
+            <form class="my-form">FORM
+                <div class="my-div">DIV
+                    <p class="my-paragraph">P</p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <h2>Envitronment</h2>
+    <div class="wrapper">
+        <strong style="color: red">Check your env in the console</strong>
+
+        <div class="mt-sm">
+            <button onclick="goToDocs()">Go to docs</button>
+        </div>
+    </div>
+
+    <h2>Event Loop</h2>
+    <a href="http://latentflip.com/loupe" target="_blank">What the heck is the event loop anyway?</a>
+
+
+    <div class="wrapper">
+        
+        <div class="mt-sm">
+            <button id="btn-event-loop-start">Start the Event loop</button>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/index.js"></script>
+</body>
+</html>
+
+
+<!-- Even the follwoing HTML is not valid the DOM will! -->
+<!-- <p>Hi
+<li>Mother
+<li>and
+<li>Father -->
