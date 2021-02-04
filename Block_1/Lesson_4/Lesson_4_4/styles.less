@@ -1,0 +1,69 @@
+.clearfix {
+    &::after { //stop floating (https://www.w3schools.com/howto/howto_css_clearfix.asp)
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+.wrapper {
+    padding: 20px;
+
+}
+
+i {
+    color: red;
+}
+
+img {
+    border: 2px dotted darkorange;
+}
+
+//==========================================
+
+@media (min-width: 576px) { //the width is 576px and wider
+    .container {
+        width: 50%;
+    }
+
+    .box {
+        width: 150px;
+    }
+}
+
+.box {
+    height: 150px;
+    border: 2px solid blue;
+    margin: 10px;
+    float: left;
+}
+
+.container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 2px solid black;
+}
+
+//==========================================
+
+.printable {
+    font-size: 30px;
+    color: red;
+}
+
+@media screen { //the monitor screen styles
+    .printable {
+        display: none;
+    }
+}
+
+@media print { //the following styles will be used when you want to print the page
+    .box {
+        display: none;
+    }
+
+    .printable {
+        display: inline;
+    }
+}
+

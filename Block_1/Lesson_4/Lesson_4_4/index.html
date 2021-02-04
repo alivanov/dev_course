@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4.4</title>
+
+    <link rel="shortcut icon" sizes="16x16" href="/myicon.ico" type="image/x-icon">
+
+
+    <!-- this styles will be applied for screens width > 1200px -->
+    <link rel="stylesheet/less" type="text/css" media="screen and (min-width: 1200px)" href="/styles_widescreen.less">
+    <!-- this styles will be applied for screens width <= 1200px -->
+    <link rel="stylesheet/less" type="text/css" media="screen and (max-width: 1200px)" href="/styles_smallscreen.less">
+    <!-- this styles will be applied for all screens -->
+    <link rel="stylesheet/less" type="text/css" href="/styles.less">
+
+    <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
+
+</head>
+<body>
+    <h1>@media</h1>
+
+    <div class="wrapper">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media" target="_blank">Learn more...</a>
+        <br>
+        <br>
+        <i>
+            Set the browser width 1199 and then 1200 and observe the body bg color
+        </i>
+
+        <br>
+        <br>
+
+        <img src="/browser_emulators.png" alt="browser_emulators" style="width: 80%"/>
+
+    </div>
+
+    <h2>Let's define the "grid"</h2>
+
+    <div class="wrapper">
+        <img src="/grid.png" alt="grid" />
+    </div>
+
+    <div class="wrapper">
+        <i>Reduce the browser width and observe the container styles</i>
+
+        <div class="container">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae est aliquet, fringilla ante a, venenatis diam.</p>
+        </div>
+    </div>
+
+    <h2>Responsiveness using "float"</h2>
+
+    <div class="wrapper clearfix">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+
+        <strong class="printable">Confidential info is hidden!!!</strong>
+    </div>
+
+    <h2>And finally try to print your page</h2>
+
+    <div class="wrapper">
+        <img src="/print.png" alt="print" />
+    </div>
+</body>
+</html>
