@@ -1,5 +1,3 @@
-//1. Objects
-
 console.log('\x1b[31m', '//Create & compare --------------------------------------------- \n', '\x1b[0m');
 
 let user1 = new Object({name: 'user1'});

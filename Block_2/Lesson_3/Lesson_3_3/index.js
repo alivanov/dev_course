@@ -74,6 +74,7 @@ class Animal {
 }
 
 class Cat extends Animal {
+  //default constructor => might be omitted
   constructor(...args) {
     super(...args);
   }
