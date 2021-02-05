@@ -1,13 +1,18 @@
+@background-color: color("#87ac58");
+@heading-color: blue;
+@heading-alfa-color: yellow;
+@danger-color: red;
+
 body {
-    background-color: #87ac58;
+    background-color: @background-color;
 }
 
 .b-heading {
-    color: blue;
+    color: @heading-color;
 }
 
 .b-heading--level_alpha {
-    color: yellow;
+    color: @heading-alfa-color;
 }
 
 .b-heading--underlined {
@@ -18,7 +23,7 @@ body {
     padding: 20px;
 
     &__form {
-        margin-top: 30px;
+        margin-top: round(29.9px);
     }
 
     &__image {
@@ -28,10 +33,10 @@ body {
 }
 
 .b-wrapper__link {
-    font-size: 20px;
+    font-size: abs(-25px);
 
     &--important {
-        color: red;
+        color: @danger-color;
         font-weight: bold;
     }
 
