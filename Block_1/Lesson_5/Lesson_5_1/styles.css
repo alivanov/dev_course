@@ -11,6 +11,7 @@ body {
 }
 
 .flex-container {
+    height: 1000px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -25,27 +26,33 @@ body {
     border-radius: 1rem;
     width: 300px;
     /* flex-basis: 25%; */
+    /* flex-grow: 1; */
 }
 
 .box-1 {
+    color: darkslategrey;
     /* flex: 2;
     order: 2; */
 }
 .box-2 {
+    color: darkslategrey;
     /* flex: 2;
     order: 1; */
 }
 .box-3 {
+    color: darkslategrey;
     /* flex: 1;
     order: 3; */
 }
 
 .box-4 {
+    color: darkslategrey;
     /* flex: 1;
     order: 4; */
 }
 
 .box-5 {
+    color: darkslategrey;
     /* flex: 1;
     order: 5; */
 }
@@ -60,4 +67,9 @@ body {
     background-color: yellow;
     padding: 1.5rem;
     border-radius: 1rem;
+}
+
+.grid-item:first-child {
+    grid-column-start: 1; /*starts from 1*/
+    grid-column-end: 3; /*exclusive*/
 }
