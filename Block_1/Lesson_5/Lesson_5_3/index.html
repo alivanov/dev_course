@@ -9,16 +9,90 @@
     <link rel="stylesheet" href="/styles.css"></link>
 </head>
 <body>
-    <h1>AUTO</h1>
+    
+    <h1>Centering elements</h1>
+    <a href="https://css-tricks.com/centering-css-complete-guide" target="_blank">Centering elements</a>
+
+    <h2>Horizontally</h2>
 
     <div class="wrapper">
-        <a href="https://css-tricks.com/centering-css-complete-guide" target="_blank">Centering elements</a>
-        <div class="container">
-            <div class="box centered"></div>
+        <h3>Just a text</h3>
+        <div class="container text-center">
+            <span>I'm inline element centered horizontally</span>
+            <br>
+            <span>Vertical alignment is just illusion - obtained by paddings</span>
         </div>
-
-        <a href="https://habr.com/ru/company/ruvds/blog/494716" target="_blank">CSS auto keyword</a>
     </div>
+
+    <div class="wrapper mt-md">
+        <h3>Block element</h3>
+        <div class="container">
+            <div class="box centered text-center">
+                <span>text inside block</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper mt-md">
+        <h3>Multiple Block elements</h3>
+        <div class="container flex-center">
+            <div class="box text-center">
+                <span>text inside block</span>
+            </div>
+            <div class="box text-center">
+                <span>text inside block</span>
+            </div>
+            <div class="box text-center">
+                <span>text inside block</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>Vertically</h2>
+
+    <div class="wrapper">
+        <h3>Single line</h3>
+        <div class="box-container text-center text__v_center__line_height">
+            <span>I'm inline element centered horizontally & vertically</span>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <h3>Multiple lines (real table)</h3>
+
+        <table class="box-container">
+            <tr>
+                <td>
+                    <span>I'm vertically centered multiple lines of text in a real table cell.</span>
+                    <br>
+                    <span>Horizontal alignment is just illusion - obtained by paddings</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="wrapper">
+        <h3>Multiple lines (div with table layout)</h3>
+
+        <div class="box-container center-table">
+            <span>I'm vertically centered multiple lines of text in a CSS-created table layout.</span>
+            <br>
+            <span>Horizontal alignment is just illusion - obtained by paddings</span>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <h3>Multiple lines (flexbox)</h3>
+
+        <div class="box-container flex-center-vertically">
+            <span>I'm vertically centered multiple lines of text in a CSS-created table layout.</span>
+            <br>
+            <span>Horizontal alignment is just illusion - obtained by paddings</span>
+        </div>
+    </div>
+    
+    <h1>AUTO</h1>
+    <a href="https://habr.com/ru/company/ruvds/blog/494716" target="_blank">CSS auto keyword</a>
 
 </body>
 </html>
