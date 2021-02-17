@@ -316,3 +316,19 @@ console.log('\x1b[31m', '//Private props can not be inherited ------------------
     }
 } */
 
+//----------------------------
+
+console.log('\x1b[31m', '//FizzBuzz (declarative) --------------------------------------------- \n', '\x1b[0m');
+
+//Falsy values (https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+//null, undefined, 0, '', NaN, false
+
+//function returns function (in runtime!)
+const gen = (n, w) => (num) => num % n === 0 ? w : ''; // '' is falsy
+
+const fizz = gen(3, 'Fizz');
+const buzz = gen(5, 'Buzz');
+
+const arr = [...Array(99).keys()].map(i => i + 1); // [1,2,3,...,100]
+
+arr.forEach(i => console.log(fizz(i) + buzz(i) || i));

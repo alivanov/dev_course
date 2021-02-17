@@ -1,0 +1,30 @@
+{ 
+    "people": [
+        {
+            "name": "Sara",
+            "age": 23,
+            "gender": "Female",
+            "department": "History",
+            "car": "Honda"
+        },
+        {
+            "name": "Bob",
+            "age": 43,
+            "gender": "Male",
+            "department": "Military",
+            "car": "Abrams"
+        },
+        {
+            "name": "Bill",
+            "age": 31,
+            "gender": "Male",
+            "department": "Medicine",
+            "car": "Audi"
+        }
+    ],
+    "country": {
+        "name": "Narnia",
+        "population": 2000
+    },
+    "created_at": "2021-02-17T08:32:42.222Z"
+}
