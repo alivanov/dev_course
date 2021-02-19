@@ -6,7 +6,7 @@
     - Односвязный/двусвязный списки
     - Дерево
     - Граф
-    - Хэш таблицы
+    - Хэш таблицы (https://www.youtube.com/watch?v=FZEi19-B3XA&list=PLvWwA9iDlhHB1qp22la3mn01JuVOwyuqw&index=4)
     - https://www.geeksforgeeks.org/overview-of-data-structures-set-1-linear-data-structures
     - https://www.geeksforgeeks.org/overview-of-data-structures-set-2-binary-tree-bst-heap-and-hash
 
@@ -21,6 +21,6 @@
 4. Утечки памяти, сборщик мусора
     - https://learn.javascript.ru/garbage-collection
     - https://twitter.com/jsunderhood/status/1317073430416588801
-    - Set, Map, weakSet, weakMap
+
+5. Set, Map, weakSet, weakMap
     - https://www.youtube.com/watch?v=mbcP3Oc0PjU
-    - https://www.youtube.com/watch?v=FZEi19-B3XA&list=PLvWwA9iDlhHB1qp22la3mn01JuVOwyuqw&index=4
