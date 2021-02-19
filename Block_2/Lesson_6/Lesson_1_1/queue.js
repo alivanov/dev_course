@@ -1,3 +1,18 @@
+/*
+Insertion : O(1)
+Deletion  : O(1)
+Access Time : O(n) [Worst Case]
+*/
+
+/*
+Example : Queue as the name says is the data structure built according to the queues of bus stop or train where the person who is standing in the 
+front of the queue(standing for the longest time) is the first one to get the ticket. 
+So any situation where resources are shared among multiple users and served on first come first server basis. 
+Examples include CPU scheduling, Disk Scheduling. 
+Another application of queue is when data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes. 
+Examples include IO Buffers, pipes, file IO, etc.
+*/
+
 class Node {
   constructor(val) {
     this.value = val;
@@ -12,14 +27,6 @@ class Queue {
   	this.first = null;
     this.last = null;
     this.n = 0;
-  }
-  
-  isEmpty() {
-  	return this.n === 0;
-  }
-  
-  size() {
-  	return this.n;
   }
   
   enqueue(queueNode) {
@@ -45,6 +52,16 @@ class Queue {
   	this.n--;
     
     return oldFirst;
+  }
+
+  //========== helpers ==========
+
+  isEmpty() {
+  	return this.n === 0;
+  }
+  
+  size() {
+  	return this.n;
   }
   
   info() {

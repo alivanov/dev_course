@@ -1,3 +1,11 @@
+/*
+If you need all items in your collection to be ordered at all times, then a binary-search-tree is usually a better bet.
+If you are constantly adding and removing items to and from the collection, then a binary search tree tends to be a better bet.
+When dealing with small collections (like less than 20 items), a binary-search-tree has faster look-up times.
+Constructed by compilers and (implicitly) calculators to parse expressions.
+Used to construct Abstract data types (Binary heap, Priority Queue, etc...)
+*/
+
 // Node class 
 class Node 
 { 

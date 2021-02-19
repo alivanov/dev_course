@@ -1,3 +1,23 @@
+/*
+Accessing time of an element : O(n)
+Search time of an element : O(n)
+Insertion of an Element : O(1) [If we are at the position 
+                                where we have to insert 
+                                an element] 
+Deletion of an Element : O(1) [If we know address of node
+                               previous the node to be 
+                               deleted] 
+*/
+
+/*
+Though originally intended for better memory management, linked lists also became popular when developers didn’t know how many items an array would ultimately contain. 
+It was much easier to use a linked list and add values as necessary than it was to accurately guess the maximum number of values an array might contain. 
+As such, linked lists are often used as the foundation for built-in data structures in various programming languages.
+
+The built-in JavaScript Array type is not implemented as a linked list, though its size is dynamic and is always the best option to start with. 
+You might go your entire career without needing to use a linked list in JavaScript but linked lists are still a good way to learn about creating your own data structures.
+*/
+
 // User defined class node 
 class Node { 
   // constructor 
