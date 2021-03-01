@@ -50,7 +50,7 @@ class User {
     }
   
     get name() {
-      return this._name; //you can decorate internal value here somehow before return
+      return this._name.toUpperCase(); //you can decorate internal value here somehow before return
     }
   
     set name(value) {
@@ -158,7 +158,7 @@ let coffeeMachineLegacy = new CoffeeMachineLegacy(100);
 console.log(`Power: ${coffeeMachineLegacy.power}W`); // Power: 100W
 
 coffeeMachineLegacy.power = 25;
-console.log(coffeeMachineLegacy); //no setter -> _power is still 100
+console.log('CoffeeMachineLegacy data', coffeeMachineLegacy); //no setter -> _power is still 100
 
 //----------------------------
 
@@ -181,7 +181,7 @@ class CoffeeMachine {
   let machine = new CoffeeMachine();
   
   machine.waterAmount = 100;
-  console.log(machine.waterAmount); //100
+  console.log('Modern CoffeeMachine water amount', machine.waterAmount); //100
   //console.log(machine.#waterAmount); //error
 
 //----------------------------
@@ -261,9 +261,9 @@ class Todo {
 
 class ImpossibleTodo extends Todo{
     //default constructor
-    /* constructor(...args) {
-        super(...args);
-    } */
+    //constructor(...args) {
+    //    super(...args);
+    //}
 
     markDone() {
         console.log('Can not do impossible things!');
@@ -310,11 +310,11 @@ console.log(list.todoList);
 
 console.log('\x1b[31m', '//Private props can not be inherited --------------------------------------------- \n', '\x1b[0m');
 
-/* class MegaCoffeeMachine extends CoffeeMachine {
-    method() {
-        console.log( this.#waterAmount ); // Error: can only access from CoffeeMachine
-    }
-} */
+// class MegaCoffeeMachine extends CoffeeMachine {
+//    method() {
+//        console.log( this.#waterAmount ); // Error: can only access from CoffeeMachine
+//    }
+//}
 
 //----------------------------
 
