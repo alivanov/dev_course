@@ -1,6 +1,8 @@
 //npm i -g typescript
 //tsc index.ts --outDir ./dist
 
+console.log('\x1b[31m', '//Functions overloading --------------------------------------------- \n', '\x1b[0m');
+
 function add(a: number, b: number): number {
   return a + b
 }

@@ -1,5 +1,7 @@
 //npm i -g typescript
-//tsc index.ts --outDir ./dist  
+//tsc index.ts --outDir ./dist
+
+console.log('\x1b[31m', '//Classes, Encapsulation, Abstract classes --------------------------------------------- \n', '\x1b[0m');
 
 class Typescript {
   version: string

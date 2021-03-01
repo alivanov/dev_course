@@ -1,6 +1,7 @@
- 
 //npm i -g typescript
 //tsc index.ts --outDir ./dist
+
+console.log('\x1b[31m', '//Interfaces --------------------------------------------- \n', '\x1b[0m');
 
 interface Rect {
   readonly id: string
