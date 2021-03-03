@@ -36,16 +36,16 @@ app.use(cors())
 app.use(function (req, res, next) {
   console.log('Time:', Date.now());
   next();
-  //next();
+  //next(); //uncomment to see how middlewares work
 })
 
 app.use(function (req, res, next) {
-  console.log('I am here - 1');
+  console.log('I am custom middleware - 1');
   next();
 })
 
 app.use(function (req, res, next) {
-  console.log('I am here - 2');
+  console.log('I am custom middleware - 2');
   next();
 })
 
