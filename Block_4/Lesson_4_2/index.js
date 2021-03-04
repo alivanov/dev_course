@@ -1,12 +1,21 @@
 /*
-0. node -v
+1. node -v
   v12.16.3
-1. $ npm init -y
-2. create index.js
-3. npm install -D @babel/core @babel/cli @babel/preset-env @babel/plugin-proposal-class-properties rimraf
-4. create babel.config.json
-5. update npm scripts
+2. $ npm init -y
+3. create index.js
+4. npm install -D @babel/core @babel/cli @babel/preset-env @babel/plugin-proposal-class-properties rimraf esm
+  - use 'node -r esm index.js' to make import work in node 12.16.3 (https://stackoverflow.com/questions/45854169/how-can-i-use-an-es6-import-in-node-js)
+5. create babel.config.json
+  - use "plugins": ["@babel/plugin-proposal-class-properties"] to transpile a class private properties
+6. update npm scripts
+7. $ npm run start:dev
+8. $ npm run build
+9. $ npm start
+10. nvm use 8.5.0 - switch to node 8.5.0
+11. $ npm run build  && npm start still works
 */
+
+import _ from 'lodash';
 
 class User {
   #isHuman = true;
@@ -33,9 +42,15 @@ class User {
   getAbilities() {
     return this.#abilities;
   }
+
+  has(lang) {
+    return _.has(this.#abilities, lang);
+  }
 }
 
 const user = new User('John');
 console.log(user.isHuman());
 console.log(user.getName());
 console.log(user.getAbilities());
+console.log(user.has('JS'));
+console.log(user.has('Ruby'));
