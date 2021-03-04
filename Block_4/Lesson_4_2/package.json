@@ -1,0 +1,27 @@
+{
+  "name": "Lesson_4_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "start:dev": "NODE_ENV=development node --experimental-modules index.js",
+    "build": "npm run clean && babel ./index.js --out-dir dist",
+    "clean": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.9",
+    "rimraf": "^3.0.2"
+  }
+}
