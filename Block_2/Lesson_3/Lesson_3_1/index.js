@@ -1,4 +1,3 @@
-
 console.log('\x1b[31m', '//Classes: basic syntax (functions) --------------------------------------------- \n', '\x1b[0m');
 
 function UserF(name) {
@@ -24,6 +23,7 @@ class UserC {
     sayHi() {
       console.log(`Hi ${this.name}`);
     }
+
     //no comma here!
     sayBye() {
       console.log(`Bye ${this.name}`);
@@ -74,7 +74,6 @@ class Car {
     movable = true; //new feaature that won't work on old nodejs versions
 
     constructor(name) {
-        //call setter  
         this.name = name;
     }
   
@@ -86,6 +85,7 @@ class Car {
 let car = new Car('Renault');
 car.showName();
 console.log('Is it movable?', car.movable);
+
 
 //----------------------------
 
@@ -123,7 +123,7 @@ console.log('\x1b[31m', '//Inheritance -----------------------------------------
 class Admin extends Person {
     constructor(name, computerName) {
         super(name); //call base class constructor
-        //super(...arguments);
+        //super(...arguments); //better way
         this.isAdmin = true;
         this.computerName = computerName;
     }

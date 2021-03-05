@@ -125,3 +125,4 @@ setTimeout(() => {user5.printName()}, 10); // ok
 
 let boundFunc = user5.printName.bind(user5)
 setTimeout(boundFunc, 10); // ok
+ 
