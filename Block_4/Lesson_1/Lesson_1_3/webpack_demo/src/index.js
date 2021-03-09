@@ -8,6 +8,12 @@
   7. update index.html to get the bundle (<script src="/dist/bundle.js"></script>), start a server and ensure it works
   8. the second entry point for webpack
   9. Avoid caching by using [contenthash] pattern (update analytics.js text and check the bundle hash)
+  10. plugins 
+    - $ npm i -D html-webpack-plugin loader-utils
+    - remove <script> tags from index.html
+    - move index.html to src folder
+    - $ npm i -D clean-webpack-plugin
+  11. update scripts in package.json
 */
 
 import Post from './Post.js';
