@@ -1,7 +1,19 @@
+@import "roboto.css";
+@import "~normalize.css";
+
 h1 {
   text-align: center;
 }
 
 body {
   background-color: grey;
+  font-family: "Roboto", san-serif;
+}
+
+.logo {
+  background-image: url("../assets/avatar.png");
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
 }

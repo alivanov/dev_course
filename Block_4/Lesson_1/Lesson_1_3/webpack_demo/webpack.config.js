@@ -27,6 +27,22 @@ module.exports = {
       //css-loader handles imports of css files in js files
       //style-loader adds styles to head
       use: ['style-loader', 'css-loader'] 
+    },
+    {
+      test: /\.(png|jpg|svg|gif)$/,
+      use: ["file-loader"]
+    },
+    {
+      test: /\.(ttf|woff|woff2|eot)$/,
+      use: ["file-loader"]
+    },
+    {
+      test: /\.xml$/,
+      use: ["xml-loader"]
+    },
+    {
+      test: /\.csv$/,
+      use: ["csv-loader"]
     }]
   }
 }

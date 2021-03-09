@@ -16,14 +16,25 @@
   11. update scripts in package.json
   12. context & loaders
     - npm i -D style-loader css-loader
+  13. More loaders
+    - npm i -D file-loader (images, fonts)
+    - npm i normalize.css
+    - npm i -D xml-loader csv-loader
 */
 
 import Post from './Post.js';
 
-import '../styles/styles.css'
+import '../styles/styles.css';
+import json from '../assets/json.json'; //no special loader needed
+import xml from "../assets/data.xml"; //xml-loader
+import csv from "../assets/data.csv"; //csv-loader
+import Avatar from "../assets/avatar.png"; //file-loader
 
-const post = new Post('my post');
+const post = new Post("Webpack post title!", Avatar);
 
 console.log('post', post.toString());
 
 console.log('analytics', analytics);
+console.log('json', json);
+console.log("CSV:", csv);
+console.log("XML:", xml);
