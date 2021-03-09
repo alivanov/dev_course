@@ -50,5 +50,10 @@ module.exports = {
       test: /\.csv$/,
       use: ["csv-loader"]
     }]
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
   }
 }

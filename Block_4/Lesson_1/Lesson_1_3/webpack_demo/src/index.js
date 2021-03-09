@@ -21,6 +21,12 @@
     - npm i normalize.css
     - npm i -D xml-loader csv-loader
   14. Resolve
+  15. external libraries
+    - npm i jquery
+    - add jquery to index.js and analytics.js
+    - build & observe that jquery is included twice
+    - add webpack config optimization option & re-build
+    - ensure that vendor* files are created
 */
 
 import Post from '@models/Post';
@@ -31,7 +37,11 @@ import xml from "../assets/data.xml"; //xml-loader
 import csv from "../assets/data.csv"; //csv-loader
 import Avatar from "../assets/avatar.png"; //file-loader
 
+import * as $ from 'jquery';
+
 const post = new Post("Webpack post title!", Avatar);
+
+$('pre').html(post.toString());
 
 console.log('post', post.toString());
 
