@@ -14,9 +14,13 @@
     - move index.html to src folder
     - $ npm i -D clean-webpack-plugin
   11. update scripts in package.json
+  12. context & loaders
+    - npm i -D style-loader css-loader
 */
 
 import Post from './Post.js';
+
+import '../styles/styles.css'
 
 const post = new Post('my post');
 
