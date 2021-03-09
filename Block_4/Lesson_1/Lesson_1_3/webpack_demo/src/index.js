@@ -20,12 +20,13 @@
     - npm i -D file-loader (images, fonts)
     - npm i normalize.css
     - npm i -D xml-loader csv-loader
+  14. Resolve
 */
 
-import Post from './Post.js';
+import Post from '@models/Post';
 
 import '../styles/styles.css';
-import json from '../assets/json.json'; //no special loader needed
+import json from '../assets/json'; //no special loader needed
 import xml from "../assets/data.xml"; //xml-loader
 import csv from "../assets/data.csv"; //csv-loader
 import Avatar from "../assets/avatar.png"; //file-loader

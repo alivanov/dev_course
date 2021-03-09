@@ -12,6 +12,12 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist')
   },
+  resolve: {
+    extensions: [".js", ".json"],
+    alias: {
+      "@models": path.resolve(__dirname, "src/models")
+    }
+  },
   plugins: [
     //this will generate index.html inside dist folder with js scripts included
     new HTMLWebpackPlugin({
