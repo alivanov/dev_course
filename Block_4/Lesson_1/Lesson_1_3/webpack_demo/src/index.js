@@ -7,6 +7,7 @@
   6. $ ./node_modules/.bin/webpack (observe the difference from step 4)
   7. update index.html to get the bundle (<script src="/dist/bundle.js"></script>), start a server and ensure it works
   8. the second entry point for webpack
+  9. Avoid caching by using [contenthash] pattern (update analytics.js text and check the bundle hash)
 */
 
 import Post from './Post.js';
