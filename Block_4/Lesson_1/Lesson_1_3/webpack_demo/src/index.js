@@ -6,6 +6,7 @@
   5. export class Post, import the class in index.js
   6. $ ./node_modules/.bin/webpack (observe the difference from step 4)
   7. update index.html to get the bundle (<script src="/dist/bundle.js"></script>), start a server and ensure it works
+  8. the second entry point for webpack
 */
 
 import Post from './Post.js';
