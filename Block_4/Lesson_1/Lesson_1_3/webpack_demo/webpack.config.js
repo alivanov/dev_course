@@ -1,6 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -24,7 +25,15 @@ module.exports = {
       template: './index.html'
     }),
     //this will remove previous bundles from dist folder
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "assets/myicon.ico"),
+          to: path.resolve(__dirname, "dist")
+        }
+      ]
+    })
   ],
   module: {
     rules: [{

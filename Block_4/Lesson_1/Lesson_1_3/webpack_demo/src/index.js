@@ -29,6 +29,8 @@
     - ensure that vendor* files are created
   16. dev server
     - npm i -D webpack-dev-server // webpack-dev-server stores all stuff in memory to speedup -> 'dist' folder does not exist (build scripts create 'dist' folder)
+  17. copy files
+    - npm i -D copy-webpack-plugin
 */
 
 import Post from '@models/Post';
