@@ -2,6 +2,30 @@ const path = require('path');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserWebpackPlugin = require("terser-webpack-plugin");
+
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
+console.log(isDev);
+
+const optimization = () => {
+  const config = {
+    splitChunks: {
+      chunks: "all"
+    }
+  };
+
+  if (isProd) {
+    config.minimizer = [
+      new OptimizeCssAssetsWebpackPlugin(),
+      new TerserWebpackPlugin()
+    ];
+  }
+
+  return config;
+};
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -22,7 +46,10 @@ module.exports = {
   plugins: [
     //this will generate index.html inside dist folder with js scripts included
     new HTMLWebpackPlugin({
-      template: './index.html'
+      template: './index.html',
+      minify: {
+        collapseWhitespace: isProd
+      }
     }),
     //this will remove previous bundles from dist folder
     new CleanWebpackPlugin(),
@@ -33,15 +60,15 @@ module.exports = {
           to: path.resolve(__dirname, "dist")
         }
       ]
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
     })
   ],
   module: {
     rules: [{
       test: /\.css$/,
-      //webpack will execute css-loader and then style-loader
-      //css-loader handles imports of css files in js files
-      //style-loader adds styles to head
-      use: ['style-loader', 'css-loader'] 
+      use: [MiniCssExtractPlugin.loader, 'css-loader'] 
     },
     {
       test: /\.(png|jpg|svg|gif)$/,
@@ -60,12 +87,9 @@ module.exports = {
       use: ["csv-loader"]
     }]
   },
-  optimization: {
-    splitChunks: {
-      chunks: "all"
-    }
-  },
+  optimization: optimization(),
   devServer: {
-    port: 8765
+    port: 8765,
+    hot: isDev
   }
 }

@@ -31,6 +31,11 @@
     - npm i -D webpack-dev-server // webpack-dev-server stores all stuff in memory to speedup -> 'dist' folder does not exist (build scripts create 'dist' folder)
   17. copy files
     - npm i -D copy-webpack-plugin
+  18. css plugin, minify
+    - npm install -D mini-css-extract-plugin
+    - npm i -D cross-env
+    - npm i -D terser-webpack-plugin
+    - npm i -D optimize-css-assets-webpack-plugin
 */
 
 import Post from '@models/Post';
