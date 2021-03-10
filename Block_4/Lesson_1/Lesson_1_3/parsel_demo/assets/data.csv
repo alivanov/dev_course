@@ -1,0 +1,4 @@
+id,first_name,last_name,email,country,locale,orders_count,sessions_count,created_at,active_for_push_notification,archived,labels
+146481,Davide,Di Santo,davidedis@gmail.com,it,,2,2,2020-09-21 10:03:14 UTC,FALSE,FALSE,VIP Model Approved Email Verified
+147497,david,brakha,david+testnodel@thehotelcloud.com,,,0,0,2020-09-29 19:02:56 UTC,FALSE,FALSE,
+147498,asdj,safd,wdf@thehotelcloud.com,fr,,4,3,2020-09-29 19:07:33 UTC,FALSE,FALSE,Model Approved eyes-blue
