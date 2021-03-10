@@ -48,6 +48,7 @@
   22. devtool -> source maps
   23. esllint
     - npm i -D eslint eslint-loader babel-eslint
+  24. dynamic imports
 */
 
 import Post from '@models/Post';

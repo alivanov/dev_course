@@ -45,6 +45,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
     "normalize.css": "^8.0.1"
   }
 }
