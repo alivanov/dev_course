@@ -36,11 +36,16 @@
     - npm i -D cross-env
     - npm i -D terser-webpack-plugin
     - npm i -D optimize-css-assets-webpack-plugin
+  19. less, sass
+    - npm i -D less less-loader
+    - npm i -D node-sass sass-loader
 */
 
 import Post from '@models/Post';
 
 import '../styles/styles.css';
+import '../styles/less.less';
+import '../styles/scss.scss';
 import json from '../assets/json'; //no special loader needed
 import xml from "../assets/data.xml"; //xml-loader
 import csv from "../assets/data.csv"; //csv-loader
