@@ -21,8 +21,10 @@
     - https://twitter.com/jsunderhood/status/1317073430416588801 
 
 4. Утечки памяти, сборщик мусора
-    - https://learn.javascript.ru/garbage-collection
+    - https://learn.javascript.ru/garbage-collection 
     - https://twitter.com/jsunderhood/status/1317073430416588801
+    - https://habr.com/ru/post/309318 
+    - https://developer.mozilla.org/ru/docs/Web/JavaScript/Memory_Management
 
 5. Set, Map, weakSet, weakMap
     - https://www.youtube.com/watch?v=mbcP3Oc0PjU
