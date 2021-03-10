@@ -27,6 +27,8 @@
     - build & observe that jquery is included twice
     - add webpack config optimization option & re-build
     - ensure that vendor* files are created
+  16. dev server
+    - npm i -D webpack-dev-server // webpack-dev-server stores all stuff in memory to speedup -> 'dist' folder does not exist (build scripts create 'dist' folder)
 */
 
 import Post from '@models/Post';
@@ -39,7 +41,7 @@ import Avatar from "../assets/avatar.png"; //file-loader
 
 import * as $ from 'jquery';
 
-const post = new Post("Webpack post title!", Avatar);
+const post = new Post("Webpack post title", Avatar);
 
 $('pre').html(post.toString());
 

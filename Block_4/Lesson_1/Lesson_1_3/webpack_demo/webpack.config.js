@@ -55,5 +55,8 @@ module.exports = {
     splitChunks: {
       chunks: "all"
     }
+  },
+  devServer: {
+    port: 8765
   }
 }
