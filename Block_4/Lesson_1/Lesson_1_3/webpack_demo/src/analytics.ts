@@ -1,14 +1,14 @@
-import * as $ from 'jquery'
+import * as $ from "jquery";
 
-function createAnalytics() {
+function createAnalytics(): object {
   let counter = 0;
-  let isDestroyed = false;
+  let isDestroyed : boolean = false;
 
-  const listener = () => counter++;
+  const listener = (): number => counter++;
 
   //document.addEventListener("click", listener);
   $(document).on("click", listener);
-  
+
   return {
     destroy() {
       //document.removeEventListener("click", listener);
@@ -18,11 +18,11 @@ function createAnalytics() {
 
     getClicks() {
       if (isDestroyed) {
-        return 'Analytics is destroyed.';
+        return `Analytics is destroyed. Total clicks = ${counter}`;
       }
       return counter;
     }
   };
 }
 
-window.analytics = createAnalytics();
+window["analytics"] = createAnalytics();

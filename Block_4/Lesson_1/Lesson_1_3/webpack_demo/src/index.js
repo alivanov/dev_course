@@ -43,7 +43,8 @@
     - npm i -D babel-loader @babel/core
     - npm i -D @babel/preset-env @babel/plugin-proposal-class-properties
     - npm i @babel/polyfill
-
+  21. typescript
+    - npm i -D @babel/preset-typescript
 */
 
 import Post from '@models/Post';
