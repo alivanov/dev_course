@@ -42,6 +42,34 @@ const cssLoaders = (extra) => {
   return loaders;
 };
 
+const babelOptions = (preset) => {
+  let options = {
+    presets: ["@babel/preset-env"],
+    plugins: ["@babel/plugin-proposal-class-properties"]
+  };
+
+  if (preset) {
+    options.presets.push(preset);
+  }
+
+  return options;
+};
+
+const jsLoaders = () => {
+  const loaders = [
+    {
+      loader: "babel-loader",
+      options: babelOptions()
+    }
+  ];
+
+  if (isDev) {
+    loaders.push("eslint-loader");
+  }
+
+  return loaders;
+};
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
@@ -113,23 +141,14 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ["@babel/plugin-proposal-class-properties"]
-          }
-        }
+        use: jsLoaders()
       },
       {
         test: /\.ts$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-typescript'],
-            plugins: ["@babel/plugin-proposal-class-properties"]
-          }
+          loader: "babel-loader",
+          options: babelOptions("@babel/preset-typescript")
         }
       }
     ]

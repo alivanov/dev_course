@@ -45,6 +45,9 @@
     - npm i @babel/polyfill
   21. typescript
     - npm i -D @babel/preset-typescript
+  22. devtool -> source maps
+  23. esllint
+    - npm i -D eslint eslint-loader babel-eslint
 */
 
 import Post from '@models/Post';
@@ -70,7 +73,7 @@ $('pre').html(post.toString());
 
 console.log('post', post.toString());
 
-console.log('analytics', analytics);
+//console.log('analytics', analytics); //commented to fix eslint error
 console.log('json', json);
 console.log("CSV:", csv);
 console.log("XML:", xml);
