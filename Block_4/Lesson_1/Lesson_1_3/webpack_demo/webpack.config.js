@@ -5,10 +5,11 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
-console.log(isDev);
+//console.log(isDev);
 
 const optimization = () => {
   const config = {
@@ -70,6 +71,32 @@ const jsLoaders = () => {
   return loaders;
 };
 
+const plugins = () => {
+  const base = [
+    new HTMLWebpackPlugin({
+      template: "./index.html"
+    }),
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "assets/myicon.ico"),
+          to: path.resolve(__dirname, "dist")
+        }
+      ]
+    }),
+    new MiniCssExtractPlugin({
+      filename: filename("css")
+    })
+  ];
+
+  if (isProd) {
+    //base.push(new BundleAnalyzerPlugin());
+  }
+
+  return base;
+};
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
@@ -86,28 +113,7 @@ module.exports = {
       "@models": path.resolve(__dirname, "src/models")
     }
   },
-  plugins: [
-    //this will generate index.html inside dist folder with js scripts included
-    new HTMLWebpackPlugin({
-      template: './index.html',
-      minify: {
-        collapseWhitespace: isProd
-      }
-    }),
-    //this will remove previous bundles from dist folder
-    new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "assets/myicon.ico"),
-          to: path.resolve(__dirname, "dist")
-        }
-      ]
-    }),
-    new MiniCssExtractPlugin({
-      filename: filename('css')
-    })
-  ],
+  plugins: plugins(),
   module: {
     rules: [
       {

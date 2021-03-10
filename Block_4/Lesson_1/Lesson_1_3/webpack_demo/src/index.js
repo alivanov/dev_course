@@ -49,6 +49,8 @@
   23. esllint
     - npm i -D eslint eslint-loader babel-eslint
   24. dynamic imports
+  25. bundle analyzer
+    - npm i -D webpack-bundle-analyzer
 */
 
 import Post from '@models/Post';
