@@ -39,6 +39,11 @@
   19. less, sass
     - npm i -D less less-loader
     - npm i -D node-sass sass-loader
+  20. babel
+    - npm i -D babel-loader @babel/core
+    - npm i -D @babel/preset-env @babel/plugin-proposal-class-properties
+    - npm i @babel/polyfill
+
 */
 
 import Post from '@models/Post';
@@ -46,12 +51,17 @@ import Post from '@models/Post';
 import '../styles/styles.css';
 import '../styles/less.less';
 import '../styles/scss.scss';
+
 import json from '../assets/json'; //no special loader needed
 import xml from "../assets/data.xml"; //xml-loader
 import csv from "../assets/data.csv"; //csv-loader
+
 import Avatar from "../assets/avatar.png"; //file-loader
 
 import * as $ from 'jquery';
+
+import './babel'
+
 
 const post = new Post("Webpack post title", Avatar);
 

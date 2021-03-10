@@ -46,7 +46,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     analytics: './analytics.js',
-    main: './index.js'
+    main: ['@babel/polyfill', './index.js']
   },
   output: {
     filename: filename('js'),
@@ -81,34 +81,47 @@ module.exports = {
     })
   ],
   module: {
-    rules: [{
-      test: /\.css$/,
-      use: cssLoaders()
-    },
-    {
-      test: /\.less$/,
-      use: cssLoaders("less-loader")
-    },
-    {
-      test: /\.s[ac]ss$/,
-      use: cssLoaders("sass-loader")
-    },
-    {
-      test: /\.(png|jpg|svg|gif)$/,
-      use: ["file-loader"]
-    },
-    {
-      test: /\.(ttf|woff|woff2|eot)$/,
-      use: ["file-loader"]
-    },
-    {
-      test: /\.xml$/,
-      use: ["xml-loader"]
-    },
-    {
-      test: /\.csv$/,
-      use: ["csv-loader"]
-    }]
+    rules: [
+      {
+        test: /\.css$/,
+        use: cssLoaders()
+      },
+      {
+        test: /\.less$/,
+        use: cssLoaders("less-loader")
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: cssLoaders("sass-loader")
+      },
+      {
+        test: /\.(png|jpg|svg|gif)$/,
+        use: ["file-loader"]
+      },
+      {
+        test: /\.(ttf|woff|woff2|eot)$/,
+        use: ["file-loader"]
+      },
+      {
+        test: /\.xml$/,
+        use: ["xml-loader"]
+      },
+      {
+        test: /\.csv$/,
+        use: ["csv-loader"]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ["@babel/plugin-proposal-class-properties"]
+          }
+        }
+      }
+    ]
   },
   optimization: optimization(),
   devServer: {
