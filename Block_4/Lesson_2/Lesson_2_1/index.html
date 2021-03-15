@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2.1</title>
+
+    <link rel="shortcut icon" sizes="16x16" href="/myicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/styles.css"></link>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <h1>Cloud Cafe using firestore</h1>
+
+    <div class="content">
+        <form id="add-cafe-form">
+            <input type="text" name="name" placeholder="Cafee name...">
+            <input type="text" name="city" placeholder="City...">
+            <button>Add Cafe</button>
+        </form>
+        <ul id="cafe-list"></ul>
+    </div>
+
+    
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAMgI89mchLYZPEF56vQMKcEkLE6cF9nf0",
+            authDomain: "dev-firedemo.firebaseapp.com",
+            projectId: "dev-firedemo",
+            storageBucket: "dev-firedemo.appspot.com",
+            messagingSenderId: "766186955257",
+            appId: "1:766186955257:web:24f3c09077b716e06b5d28"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        db.settings({timestapsInSnapshots: true});
+    </script>
+
+    <script type="text/javascript" src="/index.js"></script>
+</body>
+</html>
