@@ -17,6 +17,9 @@ console.log(JSON.stringify(two));
 let three = generator.next();
 console.log(JSON.stringify(three));
 
+let four = generator.next();
+console.log(JSON.stringify(four));
+
 //for of =========================================
 
 function* generateSequence2() {
