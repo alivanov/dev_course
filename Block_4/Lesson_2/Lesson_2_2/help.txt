@@ -1,0 +1,8 @@
+$ docker images - list local docker images
+$ docker ps - list local docker containers
+$ docker rm <container_id or container_name>
+$ docker ps -aq //get containers id only
+$ docker rm $(docker ps -aq) //delete all containers
+$ docker stop <container_id or container_name> //stop the container
+$ docker kill $(docker ps -q) //stop all containers
+$ docker rmi $(docker images -q) //delete all images
