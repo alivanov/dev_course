@@ -1,4 +1,4 @@
-fetch('http://devdemo:3333/todos')
+fetch(`http://${config.development.host}:${config.development.port}/todos`)
   .then(response => response.json())
   .then(json => {
     console.log(json)
