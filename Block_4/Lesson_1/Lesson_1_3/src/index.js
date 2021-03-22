@@ -17,6 +17,13 @@ import Avatar from "../assets/avatar.png"; //file-loader
 
 import $ from 'jquery';
 
+//===========================
+
+/* import User from './modules/module';
+import {months} from './modules/module';
+import {MODULES_BECAME_STANDARD_YEAR as mStandard, JOHN as person} from './modules/module';
+import * as Module from './modules/module'; */
+
 const post = new Post("Parcel post title", Avatar);
 
 $('pre').html(post.toString());
@@ -27,3 +34,11 @@ console.log('post', post.toString());
 console.log('json', json);
 console.log("CSV:", csv);
 console.log("XML:", xml);
+
+//===========================
+
+console.log('User', new User('Frank'));
+console.log('months', months);
+console.log('MODULES_BECAME_STANDARD_YEAR', mStandard);
+console.log('JOHN', person);
+console.log('Module', Module);

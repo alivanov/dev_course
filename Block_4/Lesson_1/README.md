@@ -8,15 +8,6 @@
 2. Настройка проекта с нуля, babel, боилерплейты
     - https://www.youtube.com/watch?v=RW5JjiFg2uw
 
-3. Webpack, Parsel
-    - https://www.youtube.com/watch?v=eSaF8NXeNsA 
-    - https://www.youtube.com/playlist?list=PLkCrmfIT6LBQWN02hNj6r1daz7965GxsV
+3. Модули, Parsel
+    - https://learn.javascript.ru/modules
     - https://parceljs.org
-
-4. Tree shaking
-    - https://bitsofco.de/what-is-tree-shaking
-
-5. Eslint, prettier
-    - https://proglib.io/p/better-javascript
-    - https://github.com/airbnb/javascript
-    - https://www.digitalocean.com/community/tutorials/code-formatting-with-prettier-in-visual-studio-code
