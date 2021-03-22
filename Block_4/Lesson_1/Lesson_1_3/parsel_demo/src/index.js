@@ -17,7 +17,7 @@ import Avatar from "../assets/avatar.png"; //file-loader
 
 import $ from 'jquery';
 
-const post = new Post("Webpack post title", Avatar);
+const post = new Post("Parcel post title", Avatar);
 
 $('pre').html(post.toString());
 
