@@ -15,7 +15,11 @@
 11. $ npm run build  && npm start still works
 */
 
-import _ from 'lodash';
+/*
+package.json "engines" key info: https://www.marcusoft.net/2015/03/packagejson-and-engines-and-enginestrict.html
+*/
+
+import _ from "lodash";
 
 class User {
   #isHuman = true;
@@ -24,8 +28,8 @@ class User {
     JS: 5,
     Python: 3,
     PHP: 3,
-    NodeJS: 4
-  }
+    NodeJS: 4,
+  };
 
   constructor(name) {
     this.name = name;
@@ -48,9 +52,9 @@ class User {
   }
 }
 
-const user = new User('John');
+const user = new User("John");
 console.log(user.isHuman());
 console.log(user.getName());
 console.log(user.getAbilities());
-console.log(user.has('JS'));
-console.log(user.has('Ruby'));
+console.log(user.has("JS"));
+console.log(user.has("Ruby"));
