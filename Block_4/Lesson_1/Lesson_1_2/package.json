@@ -15,6 +15,9 @@
   "dependencies": {
     "lodash": "^4.17.21"
   },
+  "engines": {
+    "node": "12.16.3"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.13.8",
