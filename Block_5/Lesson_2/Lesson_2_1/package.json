@@ -1,0 +1,23 @@
+{
+  "name": "Lesson_2",
+  "version": "1.0.0",
+  "description": "mongoose demo",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "NODE_ENV=development nodemon index.js",
+    "db:seed:dev": "NODE_ENV=development node ./db/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
