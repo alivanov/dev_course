@@ -4,10 +4,10 @@
   "description": "",
   "private": "true",
   "scripts": {
-    "build:dev": "cross-env NODE_ENV=development webpack --mode development",
-    "build:watch": "cross-env NODE_ENV=development webpack --mode development --watch",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
-    "start:dev": "cross-env NODE_ENV=development webpack serve --mode development --open",
+    "build:dev": "cross-env NODE_ENV=development webpack",
+    "build:watch": "cross-env NODE_ENV=development webpack --watch",
+    "build": "cross-env NODE_ENV=production webpack",
+    "start:dev": "cross-env NODE_ENV=development webpack serve --open",
     "stats": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json"
   },
   "author": "",
