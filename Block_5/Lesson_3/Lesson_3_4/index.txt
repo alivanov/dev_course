@@ -1,0 +1,33 @@
+1. Check if sqlite is installed
+
+$ sqlite3 --version
+$ sqlite3 --help
+
+//===================================
+
+.* - sqlite commands (different Database Management Systems have different internal commands, like "show dbs", "show tables", etc...)
+
+//===================================
+
+2. create db
+
+$ sqlite3 dev_demo.db
+sqlite> .databases
+
+//===================================
+
+3. Triggers (https://sqlite.org/lang_createtrigger.html)
+
+sqlite> .read sqlite.sql
+sqlite> .schema
+sqlite> insert into users (username, password, email, created_at, updated_at) values ('alivanov', 'qwerty!', 'ivanov@intspirit.com', datetime('now'), datetime('now'));
+sqlite> select * from users;
+sqlite> select * from profiles; //profiles record is created. Cool!
+
+sqlite> update profiles set name = 'that awesome guy!' where user_id = 1;
+sqlite> select * from users;
+sqlite> select * from profiles; //note the updated_at column. Cool!
+
+sqlite> delete from users where id = 1;
+sqlite> select * from users;
+sqlite> select * from profiles; //profile was also deleted. Cool!

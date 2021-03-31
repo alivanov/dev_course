@@ -1,0 +1,78 @@
+1. Check if sqlite is installed
+
+$ sqlite3 --version
+$ sqlite3 --help
+
+//===================================
+
+.* - sqlite commands (different Database Management Systems have different internal commands, like "show dbs", "show tables", etc...)
+
+//===================================
+
+2. create db
+
+$ sqlite3 dev_demo.db
+sqlite> .databases
+
+Don't forget to add dev_demo.db to .gitignore!!!
+
+//===================================
+
+3. https://www.sqlite.org/datatype3.html
+
+//===================================
+
+4. Create/delete tables
+
+sqlite> create table cities (id INT NOT NULL, name VARCHAR(255) NOT NULL);
+sqlite> .tables
+
+sqlite> drop table cities;
+sqlite> .tables
+
+//===================================
+
+5. Populate table with data
+
+sqlite> create table cities (id INT NOT NULL, name VARCHAR(255) NOT NULL);
+sqlite> .tables
+
+sqlite> insert into cities(id, name) values(1, 'Taganrog');
+sqlite> insert into cities(id, name) values(2, 'Krasnodar');
+sqlite> insert into cities(id, name) values(3, 'Rostov-on-Don');
+sqlite> insert into cities(id, name) values(4, 'Moscow');
+sqlite> insert into cities(id, name) values(5, 'Paris');
+
+//===================================
+
+6. Get data from table
+
+sqlite> select * from cities;
+sqlite> select * from cities limit 3;
+sqlite> select * from cities where id = 2 OR name='Moscow';
+sqlite> select * from cities where id != 2;
+sqlite> select * from cities where id > 2;
+sqlite> select * from cities where id < 4;
+sqlite> select * from cities where name='Taganrog';
+sqlite> select name from cities where id <= 3;
+
+//===================================
+
+7. Update data
+
+sqlite> update cities set name = 'London' where id = 5;
+sqlite> select * from cities where id = 5;
+
+//===================================
+
+8. Delete data
+
+sqlite> delete  from cities where id = 5;
+sqlite> select * from cities;
+
+//===================================
+
+8. Ordering data
+
+sqlite> select * from cities order by name DESC;
+sqlite> select * from cities order by name ASC;

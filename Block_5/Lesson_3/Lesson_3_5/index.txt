@@ -1,0 +1,47 @@
+1. Check if sqlite is installed
+
+$ sqlite3 --version
+$ sqlite3 --help
+
+//===================================
+
+.* - sqlite commands (different Database Management Systems have different internal commands, like "show dbs", "show tables", etc...)
+
+//===================================
+
+2. create db
+
+$ sqlite3 dev_demo.db
+sqlite> .databases
+
+//===================================
+
+3. Transactions (https://sqlite.org/lang_transaction.html)
+
+sqlite> .read sqlite.sql
+sqlite> select * from users;
+sqlite> select * from profiles;
+
+//success case
+sqlite> begin; //transaction start 
+sqlite> update users set balance = balance + 100 where id = 1; //(note *.db-journal file is temporary created)
+sqlite> select * from users; //balance is updated but inside the current transaction only!
+sqlite> commit; //aplly
+sqlite> select * from users; //now balance is really updated. Cool!
+
+//rollback case
+sqlite> begin; //transaction start
+sqlite> update users set balance = balance + 100 where id = 1;
+sqlite> select * from users; //balance is updated but inside the current transaction only!
+sqlite> rollback; //cancel
+sqlite> select * from users; //the balance remains the same. Cool!
+
+//control points
+sqlite> begin; //transaction start
+sqlite> update users set balance = balance - 300 where id = 1;
+sqlite> savepoint my_point;
+sqlite> update users set balance = balance - 200 where id = 2;
+sqlite> update users set balance = balance + 100 where id = 3;
+sqlite> select * from users;
+sqlite> rollback to savepoint my_point;
+sqlite> select * from users; //only the first user's balance is really updated. Thransaction is still in progress!

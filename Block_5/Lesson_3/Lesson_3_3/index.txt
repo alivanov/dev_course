@@ -1,0 +1,129 @@
+1. Check if sqlite is installed
+
+$ sqlite3 --version
+$ sqlite3 --help
+
+//===================================
+
+.* - sqlite commands (different Database Management Systems have different internal commands, like "show dbs", "show tables", etc...)
+
+//===================================
+
+2. create db
+
+$ sqlite3 dev_demo.db
+sqlite> .databases
+
+//===================================
+
+3. Create tables
+
+sqlite> .read sqlite.sql
+sqlite> .tables
+sqlite> .schema
+
+//===================================
+
+4. Add data
+
+sqlite> insert into cities(name, regions_id) values ('Taganrog', 1);
+Error: FOREIGN KEY constraint failed => PRAGMA FOREIGN_KEYS = ON works! A region hould be created first!
+
+sqlite> insert into regions(name) values ('Rostov region');
+sqlite> insert into cities(name, regions_id) values ('Taganrog', 1); //works ok now!
+
+//===================================
+
+5. Delete data
+
+sqlite> update cities set regions_id = 3 where id = 1;
+Error: FOREIGN KEY constraint failed //no region with id == 3
+
+sqlite> delete from regions where id = 1;
+Error: FOREIGN KEY constraint failed //there are cities related to this region => delete them first!
+
+//===================================
+
+6. DB dump
+
+sqlite> .quit
+$ sqlite3 dev_demo.db .dump > db_dump.sql // with data
+$ sqlite3 dev_demo.db .schema > db_dump.sql // without data
+
+//===================================
+
+7. JOIN
+
+//SELECT * FROM table_name LEFT JOIN other_table ON (table_name.field_2 = other_table.field_name);
+//вернет все записи таблицы table_name, где поле field_2 таблицы table_name равно полю field_name таблицы other_table
+//и поставит их слева от записей таблицы other_table.
+
+$ sqlite3 dev_demo.db
+sqlite> insert into cities(name, regions_id) values ('Novocherkassk', 1);
+sqlite> insert into cities(name, regions_id) values ('Volgodonsk', 1);
+sqlite> insert into cities(name, regions_id) values ('Roston-on-Don', 1);
+
+//add new region
+sqlite> insert into regions(name) values ('Krasnodar region');
+sqlite> insert into cities(name, regions_id) values ('Krasnodar', 2);
+sqlite> insert into cities(name, regions_id) values ('Sochi', 2);
+sqlite> insert into cities(name, regions_id) values ('Anapa', 2);
+
+//check data
+sqlite> select * from cities;
+sqlite> select * from regions;
+
+//get data
+sqlite> select * from cities left join regions on (cities.regions_id = regions.id);
+sqlite> select cities.name, regions.name from cities left join regions on (cities.regions_id = regions.id);
+sqlite> select * from cities left join regions on (cities.regions_id = regions.id) where regions.id = 2;
+sqlite> select * from cities left join regions on (cities.regions_id = regions.id) where cities.id > 2;
+
+sqlite> select * from cities right join regions on (cities.regions_id = regions.id);
+Error: RIGHT and FULL OUTER JOINs are not currently supported // sqlite...
+
+//===================================
+
+8. Aliases
+
+sqlite> select cities.id as id, cities.name as city, regions.name as region from cities left join regions on (cities.regions_id = regions.id) order by cities.name DESC;
+
+//===================================
+
+9. Alter tables
+
+sqlite> alter table cities add column population integer not null default 0; //default is needed because the table already has some records
+sqlite> select * from cities;
+sqlite> alter table cities drop column population; 
+Error: near "drop": syntax error //sqlite...
+
+sqlite> alter table cities change population amount integer not null default 0;  
+Error: near "change": syntax error //sqlite...
+
+sqlite> alter table cities rename to towns;
+sqlite> .tables;
+
+//copy data to another table
+sqlite> create table cities_copy (id INT NOT NULL, name VARCHAR(255) NOT NULL);
+sqlite> insert into cities_copy select id, regions_id from cities;
+
+//===================================
+
+10. Functions
+
+//numbers
+sqlite> select count(id) from towns;
+sqlite> select min(id) from towns;
+sqlite> select max(id) from towns;
+sqlite> select round(1.2345);
+sqlite> select random(); select random(); select random();
+
+//strings
+sqlite> select length('0123456789');
+sqlite> select length(trim('     0123456789     '));
+sqlite> select upper('abcdef');
+sqlite> select lower('aBcdeF');
+sqlite> select substr('abcdef', 2); //str index starts from 1
+sqlite> select replace('a1a1a1', 1, 2);
+
+sqlite> select datetime('now');
