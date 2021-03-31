@@ -18,9 +18,9 @@
 
 //==================
 
-setInterval(() => {
+/* setInterval(() => {
   console.log('Hello DOCKER world!');
-}, 1000);
+}, 1000); */
 
 console.log('Hello DOCKER world!');
 
