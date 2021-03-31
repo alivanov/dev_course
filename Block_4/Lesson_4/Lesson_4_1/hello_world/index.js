@@ -9,15 +9,18 @@
 //4. $ docker run --name hello hello_world // specify the container name
 
 // update index.js to contain permanently executed code
-//5. $ docker build -t hello_world . && docker run --name hello -d hello_world // runs the container in background
+//5. $ docker build -t hello_world . && docker run --name hello hello_world
+//   $ docker stop hello //stop the container by it's name
+//6. $ docker build -t hello_world . && docker run --name hello -d hello_world // runs the container in background
+//   $ docker stop hello //stop the container by it's name
 
-//6. docker run --name hello -d --rm hello_world //delete the container once it is stopped
+//7. docker run --name hello -d --rm hello_world //delete the container once it is stopped
 
 //==================
 
-/* setInterval(() => {
+setInterval(() => {
   console.log('Hello DOCKER world!');
-}, 1000); */
+}, 1000);
 
 console.log('Hello DOCKER world!');
 
