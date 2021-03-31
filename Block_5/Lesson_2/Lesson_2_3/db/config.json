@@ -1,0 +1,5 @@
+{
+  "development": {
+    "db": "mongodb://127.0.0.1:27011/dev_demo_db_docker"
+  }
+}

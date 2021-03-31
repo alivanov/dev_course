@@ -1,0 +1,16 @@
+{
+  "name": "Lesson_2",
+  "version": "1.0.0",
+  "description": "mongoose docker demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.12.2"
+  }
+}
