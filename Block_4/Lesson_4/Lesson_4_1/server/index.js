@@ -11,7 +11,7 @@
 // go to data folder 
 //    $ pwd //to grab the absolute path
 // mount folder
-//    $ docker run --rm --name web -p 4445:4444 -e TZ=Europe/Moscow -v /Users/alexeyivanov/Work/Projects/github/dev_course/Block_4/Lesson_2/Lesson_2_2/server/data:/usr/src/app/data web-server
+//    $ docker run --rm --name web -p 4445:4444 -e TZ=Europe/Moscow -v $(data)/data:/usr/src/app/data web-server
 // try to update todos.json and ensure the server response will changed
 
 //global modules
