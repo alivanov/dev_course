@@ -1,7 +1,7 @@
-//0. run without docker (adjust port before) & ensure the local mongo db is updated with the books list
+//0. run without docker (db/config.json port 27017) & ensure the local mongo db is updated with the books list
 //1. docker images //ensure mongo image does not exist
 //2. docker run --rm -d -p 27011:27017 mongo //27017 - container mongo db port; 27011 - exposed port
-//3. start the app 
+//3. start the app
 // - open docker dashboard
 // - click mongo container and click to CLI icon (terminal)
 // - # mongo
@@ -18,9 +18,9 @@ const saveBooks = async (books) => {
   try {
     await Book.insertMany(books);
   } catch (e) {
-    console.log('Can not save!', e)
+    console.log("Can not save!", e);
   }
-}
+};
 
 const getBooks = async () => {
   try {
@@ -28,17 +28,25 @@ const getBooks = async () => {
     console.log(books);
     return books;
   } catch (e) {
-    console.log('Can not get!', e)
+    console.log("Can not get!", e);
   }
-}
+};
 
 //=============================================
 
 const books = [
-  {title: 'Зеленая миля', author: 'Стивен Кинг', genre: ['Мистика', 'Фантастика']},
-  {title: 'Хранители', author: 'Алан Мур', genre: ['Фантастика', 'Графический Роман']},
-  {title: 'Метро', author: 'Дмитрий Глуховский', genre: ['Фантастика']},
-  {title: 'Трое из леса', author: 'Юрий Никитин', genre: ['Фантастика']}
+  {
+    title: "Зеленая миля",
+    author: "Стивен Кинг",
+    genre: ["Мистика", "Фантастика"]
+  },
+  {
+    title: "Хранители",
+    author: "Алан Мур",
+    genre: ["Фантастика", "Графический Роман"]
+  },
+  { title: "Метро", author: "Дмитрий Глуховский", genre: ["Фантастика"] },
+  { title: "Трое из леса", author: "Юрий Никитин", genre: ["Фантастика"] }
 ];
 
 saveBooks(books).then(() => {
@@ -46,5 +54,3 @@ saveBooks(books).then(() => {
     db.close();
   });
 });
-
-
