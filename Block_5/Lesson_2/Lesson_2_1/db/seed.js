@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 console.log(
-  "This script populates some test books, authors, genres and bookinstances to your database.
+  "This script populates some test books, authors, genres and bookinstances to your database."
 );
 
 // Get arguments passed on command line
