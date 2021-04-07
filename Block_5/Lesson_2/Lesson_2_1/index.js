@@ -10,7 +10,7 @@ const Genre = require("./db//models/genre");
 
 //===============================
 
-app.get("/books", async (req, res) => {
+app.get("/books", async (req, res, next) => {
   try {
     const books = await Book.find(); //.populate("author").populate('genre');
     res.send(books);
@@ -70,6 +70,25 @@ app.patch("/books/:id", bodyParser.json(), async (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(404).send({ message: "Book doesn't exist!" });
+  }
+});
+
+//Note the virtuals!
+app.get("/authors", async (req, res, next) => {
+  try {
+    const authors = await Author.find();
+    res.send(authors);
+  } catch (e) {
+    next(e);
+  }
+});
+
+app.get("/authors/:id", async (req, res, next) => {
+  try {
+    const author = await Author.findOne({ _id: req.params.id });
+    res.send(author);
+  } catch (e) {
+    next(e);
   }
 });
 
