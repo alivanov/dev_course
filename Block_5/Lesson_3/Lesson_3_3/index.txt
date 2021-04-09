@@ -105,7 +105,7 @@ sqlite> .tables;
 
 //copy data to another table
 sqlite> create table cities_copy (id INT NOT NULL, name VARCHAR(255) NOT NULL);
-sqlite> insert into cities_copy select id, regions_id from cities;
+sqlite> insert into cities_copy select id, regions_id from towns;
 
 //===================================
 
