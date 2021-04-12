@@ -12,8 +12,14 @@ module.exports = sequelize.define(
     },
     name: {
       field: "Name",
+      allowNull: false,
       type: Sequelize.STRING,
       validate: {
+        //in case you want to customize the error message
+        /* notNull: {
+          args: true,
+          msg: "Name is missing"
+        }, */
         notEmpty: {
           args: true,
           msg: "Name is required"
