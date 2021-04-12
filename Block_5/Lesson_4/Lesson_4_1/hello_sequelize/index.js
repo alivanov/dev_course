@@ -39,6 +39,21 @@
 //    - const models = require("./models"); //loads models to the app
 //    - const User = models.User;
 // 15. nodejs app debugger: https://github.com/microsoft/vscode-recipes/tree/main/nodemon
+//    - npm run debug
+//    - launch.json
+//      {
+//        "version": "0.2.0",
+//        "configurations": [
+//            {
+//                "type": "node",
+//                "request": "attach",
+//                "name": "Node: Nodemon",
+//                "processId": "${command:PickProcess}",
+//               "restart": true,
+//                "protocol": "inspector",
+//            },
+//        ]
+//      }
 // 16. pg_dump -f sequelize_database_development.sql sequelize_database_development
 
 const express = require("express");
