@@ -1,10 +1,11 @@
 // https://timonweb.com/javascript/running-expressjs-server-over-https
+// $ openssl req -nodes -new -x509 -keyout server.key -out server.cert
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 // migrate to https
-// const fs = require("fs");
+// const fs = require('fs');
 
 const app = express();
 
@@ -56,5 +57,5 @@ io.on('connection', () => {
 });
 
 server.listen(3333, () => {
-  console.log('App is listening at http://localhost:3333');
+  console.log('App is listening at port 3333');
 });
