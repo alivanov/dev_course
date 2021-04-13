@@ -1,3 +1,4 @@
+// https://ssl.com.ua/info/how-ssl-works
 // https://timonweb.com/javascript/running-expressjs-server-over-https
 // $ openssl req -nodes -new -x509 -keyout server.key -out server.cert
 
