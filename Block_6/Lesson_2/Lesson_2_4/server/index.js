@@ -10,13 +10,6 @@ const app = express();
 
 const server = require('http').createServer(app);
 
-const io = require('socket.io')(server, {
-  cors: {
-    origin: 'http://localhost:8000',
-    methods: ['GET'],
-  },
-});
-
 // migrate to https
 /* const server = require('https').createServer(
   {
@@ -26,12 +19,12 @@ const io = require('socket.io')(server, {
   app,
 ); */
 
-/* const io = require("socket.io")(server, {
+const io = require('socket.io')(server, {
   cors: {
-    origin: "http://localhost:8000",
-    methods: ["GET"]
-  }
-}); */
+    origin: 'http://localhost:8000',
+    methods: ['GET'],
+  },
+});
 
 const db = require('./db');
 const Message = require('./db/models/message');
