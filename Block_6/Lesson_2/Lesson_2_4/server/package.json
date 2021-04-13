@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "NODE_ENV=development nodemon index.js",
-    "test": "NODE_ENV=test mocha ./test/**/*.spec.js --exit"
+    "test": "NODE_ENV=test mocha ./test/**/*.spec.js --exit",
+    "test:coverage": "nyc --reporter=lcov npm test"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "eslint-plugin-import": "^2.22.1",
     "mocha": "^8.3.2",
     "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
     "sinon": "^10.0.0"
   },
   "dependencies": {
