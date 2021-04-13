@@ -1,4 +1,7 @@
-const SERVER_URL = 'https://localhost:3333';
+//migrate to https
+//const SERVER_URL = 'https://localhost:3333';
+
+const SERVER_URL = 'http://localhost:3333';
 
 const socket = io(SERVER_URL);
 

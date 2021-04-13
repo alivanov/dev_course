@@ -3,22 +3,35 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const fs = require('fs');
+// migrate to https
+// const fs = require("fs");
 
 const app = express();
-const server = require('https').createServer(
-  {
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.cert'),
-  },
-  app,
-);
+
+const server = require('http').createServer(app);
+
 const io = require('socket.io')(server, {
   cors: {
     origin: 'http://localhost:8000',
     methods: ['GET'],
   },
 });
+
+// migrate to https
+/* const server = require('https').createServer(
+  {
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.cert'),
+  },
+  app,
+); */
+
+/* const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:8000",
+    methods: ["GET"]
+  }
+}); */
 
 const db = require('./db');
 const Message = require('./db/models/message');
@@ -50,5 +63,5 @@ io.on('connection', () => {
 });
 
 server.listen(3333, () => {
-  console.log('App is listening at https://localhost:3333');
+  console.log('App is listening at http://localhost:3333');
 });
