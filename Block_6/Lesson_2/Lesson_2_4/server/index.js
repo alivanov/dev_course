@@ -5,15 +5,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const http = require('http');
+const socketIO = require('socket.io');
+
 // migrate to https
 // const fs = require('fs');
+// const https = require('https');
 
 const app = express();
 
-const server = require('http').createServer(app);
+const server = http.createServer(app);
 
 // migrate to https
-/* const server = require('https').createServer(
+/* let server = https.createServer(
   {
     key: fs.readFileSync('server.key'),
     cert: fs.readFileSync('server.cert'),
@@ -21,7 +25,12 @@ const server = require('http').createServer(app);
   app,
 ); */
 
-const io = require('socket.io')(server, {
+// fix https tests
+/* if (process.env.NODE_ENV === 'test') {
+  server = http.createServer(app);
+} */
+
+const io = socketIO(server, {
   cors: {
     origin: 'http://localhost:8000',
     methods: ['GET'],
