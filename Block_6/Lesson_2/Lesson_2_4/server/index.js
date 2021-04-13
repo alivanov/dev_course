@@ -58,5 +58,8 @@ io.on('connection', () => {
 });
 
 server.listen(3333, () => {
-  console.log('App is listening at port 3333');
+  console.log(`App is listening at port 3333, env: ${process.env.NODE_ENV}`);
 });
+
+// test purposes...
+module.exports = { server, io };

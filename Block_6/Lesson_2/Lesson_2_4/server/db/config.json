@@ -1,5 +1,8 @@
 {
   "development": {
     "db": "mongodb://127.0.0.1:27017/chat_app_db"
+  },
+  "test": {
+    "db": "mongodb://127.0.0.1:27017/chat_app_db_test"
   }
 }
