@@ -13,8 +13,6 @@ const db = require('../../db');
 const Message = require('../../db/models/message');
 const { expect } = require('chai');
 
-constexpect = chai.expect;
-
 chai.use(chaiHttp);
 
 describe('APIs', () => {
