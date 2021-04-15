@@ -2,11 +2,12 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
 
 //================================
 
 const app = express();
+
+//================================
 
 //================================
 
@@ -16,36 +17,14 @@ const User = models.User;
 
 //================================
 
-app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 //================================
 
-app.post('/register', async (req, res, next) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    User.create({
-      email: req.body.email,
-      password: hashedPassword,
-    }).then(
-      (user) => {
-        res.json({ userId: user.id, message: 'registered' });
-      },
-      (validation) => {
-        res.status(422).json({
-          errors: validation.errors.map((error) => {
-            return { attribute: error.path, message: error.message };
-          }),
-        });
-      },
-    );
-  } catch (e) {
-    next(e);
-  }
+app.post('/register', (req, res, next) => {
+  res.json({ message: 'registered!' });
 });
 
 app.post('/login', (req, res) => {
-  res.status(200).send();
+  res.json({ message: 'logged in!' });
 });
 
 //================================
