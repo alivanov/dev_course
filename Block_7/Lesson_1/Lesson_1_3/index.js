@@ -1,13 +1,14 @@
 // https://github.com/alex996/presentations
 
 const express = require('express');
-const bodyParser = require('body-parser');
 
 //================================
 
 const app = express();
 
 //================================
+
+const sessionManagement = require('./sessionManagement');
 
 //================================
 
@@ -16,6 +17,10 @@ const Todo = models.Todo;
 const User = models.User;
 
 //================================
+
+// thisl will add 'connect.sid' cookie to browser
+// and save session to the database
+app.use(sessionManagement);
 
 //================================
 
