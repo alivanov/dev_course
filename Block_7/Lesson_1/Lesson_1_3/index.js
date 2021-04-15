@@ -51,7 +51,9 @@ app.post('/register', async (req, res, next) => {
     password: hash,
   }).then(
     (user) => {
-      res.json({ user, message: 'registered!' });
+      passport.authenticate('local')(req, res, () => {
+        res.json({ user, message: 'registered!' });
+      });
     },
     (validation) => {
       res.status(422).json({
