@@ -1,6 +1,9 @@
 // https://github.com/alex996/presentations
+// https://www.youtube.com/watch?v=GihQAC1I39Q&list=RDCMUCFbNIlppjAuEX4znoulh0Cw&index=4
 
 const express = require('express');
+const bodyParser = require('body-parser');
+const passport = require('passport');
 
 //================================
 
@@ -8,7 +11,7 @@ const app = express();
 
 //================================
 
-const sessionManagement = require('./sessionManagement');
+const sessionManagement = require('./config/sessionManagement');
 
 //================================
 
@@ -24,15 +27,47 @@ app.use(sessionManagement);
 
 //================================
 
-app.post('/register', (req, res, next) => {
-  res.json({ message: 'registered!' });
+// put request body to req.body
+app.use(bodyParser.json());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//================================ passport auth
+
+require('./config/passport');
+
+const passwordUtils = require('./lib/passwordUtils');
+
+app.use(passport.initialize());
+app.use(passport.session()); //serialize / deserialize
+
+//================================
+
+app.post('/register', async (req, res, next) => {
+  const hash = await passwordUtils.genPasswordHash(req.body.password);
+
+  User.create({
+    email: req.body.email,
+    password: hash,
+  }).then(
+    (user) => {
+      res.json({ user, message: 'registered!' });
+    },
+    (validation) => {
+      res.status(422).json({
+        errors: validation.errors.map((error) => {
+          return { attribute: error.path, message: error.message };
+        }),
+      });
+    },
+  );
 });
 
-app.post('/login', (req, res) => {
+app.post('/login', passport.authenticate('local'), (req, res) => {
   res.json({ message: 'logged in!' });
 });
 
-//================================
+//================================ public route
 
 app.get('/', (req, res) => {
   console.log(req.session);
@@ -49,7 +84,7 @@ app.get('/', (req, res) => {
   );
 });
 
-//================================
+//================================ protected routes
 
 app.get('/users', (req, res) => {
   User.findAll().then((users) => {
