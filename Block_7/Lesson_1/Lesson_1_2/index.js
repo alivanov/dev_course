@@ -29,6 +29,7 @@ app.get('/todos', (req, res) => {
 app.post('/todos', (req, res) => {
   Todo.create({
     title: req.body.title,
+    isDone: req.body.isDone,
   }).then(
     (todo) => {
       res.json(todo);
