@@ -35,7 +35,18 @@ app.post('/login', (req, res) => {
 //================================
 
 app.get('/', (req, res) => {
-  res.send('Public route - available for all!');
+  console.log(req.session);
+
+  // session data will be auto-saved in the database
+  if (req.session.viewCount) {
+    req.session.viewCount++;
+  } else {
+    req.session.viewCount = 1;
+  }
+
+  res.send(
+    `<h1>Public route - available for all! You have visited this page ${req.session.viewCount} times</h1>`,
+  );
 });
 
 //================================

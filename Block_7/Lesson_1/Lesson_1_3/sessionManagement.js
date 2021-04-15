@@ -14,5 +14,7 @@ module.exports = session({
   resave: false,
   saveUninitialized: true,
   store: sessionStore, // let sessions be stored in the database
-  cookie: {},
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 48, // 2 days
+  },
 });
