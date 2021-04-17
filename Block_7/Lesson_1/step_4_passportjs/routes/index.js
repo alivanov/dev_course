@@ -21,12 +21,10 @@ router.post('/register', async (req, res, next) => {
     role: req.body.role,
   }).then(
     (user) => {
-      res.json({ user, message: 'registered!' });
-
       //login right after register
-      /* passport.authenticate('local')(req, res, () => {
+      passport.authenticate('local')(req, res, () => {
         res.json({ user, message: 'registered!' });
-      }); */
+      });
     },
     (validation) => {
       res.status(422).json({
