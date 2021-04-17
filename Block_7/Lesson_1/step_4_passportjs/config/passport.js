@@ -2,9 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const passwordUtils = require('../lib/passwordUtils');
-const models = require('../models');
-
-const User = models.User;
+const { User } = require('../models');
 
 //passport local strategy defaults are 'username' && 'password'
 const customFields = {
@@ -33,14 +31,16 @@ const strategy = new LocalStrategy(customFields, verifyCallback);
 
 passport.use(strategy);
 
+//put user.id in to the express session cookie
 passport.serializeUser((user, done) => {
-  done(null, user.id); //put user.id in to the session
+  done(null, user.id);
 });
 
+//grab user from the express session cookie by user.id
 passport.deserializeUser((id, done) => {
-  User.findById(id)
+  User.findByPk(id)
     .then((user) => {
-      done(null, user); //grab user from the session by user.id
+      done(null, user);
     })
     .catch((err) => done(err));
 });
