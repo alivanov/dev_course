@@ -4,7 +4,7 @@ const router = require('express').Router();
 const models = require('../models');
 const passwordUtils = require('../lib/passwordUtils');
 
-const { isAuth } = require('./authMiddleware');
+const { isAuth, isAdmin } = require('./authMiddleware');
 //====================================
 
 const Todo = models.Todo;
@@ -18,6 +18,7 @@ router.post('/register', async (req, res, next) => {
   User.create({
     email: req.body.email,
     password: hash,
+    role: req.body.role,
   }).then(
     (user) => {
       res.json({ user, message: 'registered!' });
@@ -75,7 +76,7 @@ router.get('/', (req, res) => {
 
 router.use(isAuth);
 
-router.get('/users', (req, res) => {
+router.get('/users', isAdmin, (req, res) => {
   User.findAll({
     attributes: { exclude: ['password'] }, //do not expose passwords, even if they are encoded!
   }).then((users) => {
