@@ -13,13 +13,13 @@ const verifyCallback = (email, password, done) => {
   User.findOne({ where: { email } })
     .then(async (user) => {
       if (!user) {
-        return done(null, false, { message: 'Incorrect email.' });
+        return done(null, false, { message: 'Incorrect email.' }); //use something less detailed here. Like 'Invalid credentials!'
       }
 
       const isValid = await passwordUtils.isValidPassword(password, user.password);
 
       if (!isValid) {
-        return done(null, false, { message: 'Incorrect password.' });
+        return done(null, false, { message: 'Incorrect password.' }); //use something less detailed here. Like 'Invalid credentials!'
       }
 
       return done(null, user);

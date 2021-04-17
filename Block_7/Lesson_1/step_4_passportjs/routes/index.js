@@ -41,10 +41,24 @@ router.post('/register', async (req, res, next) => {
 /*
 as postman works on another domain => to test from browser
 
-fetch("http://localhost:3030/login", {method: 'POST', headers: {'Content-Type': 'application/json'},body: JSON.stringify({email: 'aaa@mail.com', password: '12345'})})
+fetch("http://localhost:3030/login", {method: 'POST', headers: {'Content-Type': 'application/json'},body: JSON.stringify({email: 'admin@mail.com', password: '12345'})})
 */
-router.post('/login', passport.authenticate('local'), (req, res) => {
-  res.json({ message: 'logged in!' });
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.status(401).json(info);
+    }
+
+    req.logIn(user, (err) => {
+      if (err) {
+        return next(err);
+      }
+      res.json({ message: 'logged in!' });
+    });
+  })(req, res, next);
 });
 
 /*
