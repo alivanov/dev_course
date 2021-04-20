@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const router = require('express').Router();
-
+const passport = require('passport');
 const User = mongoose.model('User');
 const RefreshToken = mongoose.model('RefreshToken');
 
@@ -17,7 +17,7 @@ const issueTokensPair = async (userId) => {
 
   return {
     token: tokenObject.token,
-    expiresIn: tokenObject.expires,
+    expiresIn: tokenObject.expiresIn,
     refresh: refreshToken,
   };
 };
