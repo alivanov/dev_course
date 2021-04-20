@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 
 mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true, useUnifiedTopology: true });
 
+// removes DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+mongoose.set('useCreateIndex', true);
+
 //Get the default connection
 const db = mongoose.connection;
 

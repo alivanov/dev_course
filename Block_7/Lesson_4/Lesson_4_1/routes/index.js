@@ -6,5 +6,6 @@ router.get('/', (req, res, next) => {
 
 router.use('/users', require('./users'));
 router.use('/auth', require('./auth'));
+router.use('/refresh-tokens', require('./refresh-tokens'));
 
 module.exports = router;

@@ -9,7 +9,7 @@ const PUB_KEY = fs.readFileSync(pathToKey, 'utf8');
 
 // At a minimum, you must pass the `jwtFromRequest` and `secretOrKey` properties
 const options = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(), //'Authorization' header is expected in the format: 'Bearer <access_token>'
   secretOrKey: PUB_KEY,
   algorithms: ['RS256'],
 };

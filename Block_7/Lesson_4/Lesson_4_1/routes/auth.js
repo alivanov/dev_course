@@ -13,7 +13,7 @@ const issueTokensPair = async (userId) => {
   });
 
   const refreshToken = await newRefreshToken.save();
-  const tokenObject = utils.issueJWT(user);
+  const tokenObject = utils.issueJWT(userId);
 
   return {
     token: tokenObject.token,
@@ -28,7 +28,9 @@ router.post('/refresh', async (req, res, next) => {
   try {
     const dbToken = await RefreshToken.find({ token: refreshToken });
     if (!dbToken) {
-      return;
+      return res.status(404).json({
+        message: 'Refresh token not found',
+      });
     }
 
     await RefreshToken.deleteOne({ token: refreshToken });
@@ -47,7 +49,7 @@ router.post('/refresh', async (req, res, next) => {
 // Validate an existing user and issue a JWT
 router.post('/login', async (req, res, next) => {
   try {
-    const user = User.findOne({ username: req.body.username });
+    const user = await User.findOne({ username: req.body.username });
     if (!user) {
       return res.status(401).json({ success: false, msg: 'could not find user' });
     }
@@ -71,18 +73,18 @@ router.post('/login', async (req, res, next) => {
 
 // Register a new user
 router.post('/register', async (req, res, next) => {
-  const saltHash = utils.genPassword(req.body.password);
-
-  const salt = saltHash.salt;
-  const hash = saltHash.hash;
-
-  const newUser = new User({
-    username: req.body.username,
-    hash: hash,
-    salt: salt,
-  });
-
   try {
+    const saltHash = utils.genPassword(req.body.password);
+
+    const salt = saltHash.salt;
+    const hash = saltHash.hash;
+
+    const newUser = new User({
+      username: req.body.username,
+      hash: hash,
+      salt: salt,
+    });
+
     const user = await newUser.save();
     const tokenPair = await issueTokensPair(user._id);
 
