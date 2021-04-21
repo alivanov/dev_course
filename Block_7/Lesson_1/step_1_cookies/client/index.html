@@ -34,7 +34,6 @@
       const setCookie = (name, value, options = {}) => {
         options = {
           path: '/',
-          // при необходимости добавьте другие значения по умолчанию
           ...options,
         };
 
@@ -52,7 +51,7 @@
           }
         }
 
-        console.log(updatedCookie);
+        console.log('I am going to set the following cookie', updatedCookie);
 
         document.cookie = updatedCookie;
       };
