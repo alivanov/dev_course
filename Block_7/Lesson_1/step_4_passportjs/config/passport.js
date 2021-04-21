@@ -5,7 +5,7 @@ const passwordUtils = require('../lib/passwordUtils');
 const { User } = require('../models');
 
 //passport local strategy defaults are 'username' && 'password'
-const customFields = {
+const strategyOptions = {
   usernameField: 'email',
 };
 
@@ -27,7 +27,7 @@ const verifyCallback = (email, password, done) => {
     .catch((err) => done(err));
 };
 
-const strategy = new LocalStrategy(customFields, verifyCallback);
+const strategy = new LocalStrategy(strategyOptions, verifyCallback);
 
 passport.use(strategy);
 
