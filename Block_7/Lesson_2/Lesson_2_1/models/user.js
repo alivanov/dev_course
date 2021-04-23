@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
 
   User.init(
     {
+      // non unique because a user may use thje same email across all his social networks!
       email: {
         field: 'email',
         allowNull: false,
-        unique: true,
         type: DataTypes.STRING,
         validate: {
           notNull: {
@@ -25,18 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       password: {
         field: 'password',
-        allowNull: false,
         type: DataTypes.STRING,
-        validate: {
-          notNull: {
-            args: true,
-            msg: 'Password is required',
-          },
-          notEmpty: {
-            args: true,
-            msg: 'Password is empty',
-          },
-        },
       },
       role: {
         type: DataTypes.STRING,
@@ -44,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       socialId: {
         type: DataTypes.STRING,
+      },
+      provider: {
+        type: DataTypes.STRING,
+        defaultValue: 'local',
       },
     },
     {

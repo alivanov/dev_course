@@ -4,7 +4,8 @@
     - this should be done because the most of services do not work with 'localhost'
 
   2. Register apps:
-    - https://vk.com/editapp?act=create
+    - https://vk.com/apps?act=manage
+    - https://console.cloud.google.com/projectcreate
     - https://developers.facebook.com/apps/?show_reminder=true
 */
 

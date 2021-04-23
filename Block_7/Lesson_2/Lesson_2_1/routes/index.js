@@ -13,6 +13,21 @@ const User = models.User;
 //==================================== auth routes
 
 router.post('/register', async (req, res, next) => {
+  let user = await User.findOne({ where: { provider: 'local', email: req.body.email } });
+
+  if (user) {
+    return res.status(422).json({
+      message: 'User is already registered!',
+    });
+  }
+
+  //validate password here as social network auth passwords will be blank
+  if (!req.body.password) {
+    return res.status(422).json({
+      message: 'Password is required!',
+    });
+  }
+
   const hash = await passwordUtils.genPasswordHash(req.body.password);
 
   User.create({
@@ -83,13 +98,13 @@ router.get('/registration/vk/callback', (req, res, next) => {
 
     if (!req.user) {
       const socialId = userData.id.toString(); // vk ids are strings!
-      let user = await User.findOne({ where: { socialId } });
+      let user = await User.findOne({ where: { socialId, provider: userData.provider } });
 
       if (!user) {
         user = await User.create({
           email: userData.emails[0].value,
           socialId: socialId,
-          password: userData.provider,
+          provider: userData.provider,
         });
       }
 
@@ -113,18 +128,20 @@ router.get('/registration/google/callback', (req, res, next) => {
     console.log('Google user data', userData);
 
     if (!req.user) {
-      let user = await User.findOne({ where: { socialId: userData.id } });
+      let user = await User.findOne({
+        where: { socialId: userData.id, provider: userData.provider },
+      });
 
       if (!user) {
         user = await User.create({
           email: userData.emails[0].value,
           socialId: userData.id,
-          password: userData.provider,
+          provider: userData.provider,
         });
       }
 
       req.logIn(user, () => {
-        return res.json({ message: 'logged in with VK!', user });
+        return res.json({ message: 'logged in with Google!', user });
       });
     }
   })(req, res, next);
