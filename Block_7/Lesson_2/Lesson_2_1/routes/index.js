@@ -87,6 +87,7 @@ router.post('/logout', (req, res) => {
 //==================================== vk, google auth routes
 
 router.get('/register/vk', (req, res, next) => {
+  // updtae .enc with your valid VK_APP_ID VK_SECURE_KEY
   passport.authenticate('vkontakte', {
     scope: 'email',
   })(req, res, next);
@@ -97,7 +98,7 @@ router.get('/registration/vk/callback', (req, res, next) => {
     console.log('vkontakte user data', userData);
 
     if (!req.user) {
-      const socialId = userData.id.toString(); // vk ids are strings!
+      const socialId = userData.id.toString(); // vk ids are numbers
       let user = await User.findOne({ where: { socialId, provider: userData.provider } });
 
       if (!user) {
@@ -118,6 +119,7 @@ router.get('/registration/vk/callback', (req, res, next) => {
 //-------------------
 
 router.get('/register/google', (req, res, next) => {
+  // updtae .enc with your valid GOOGLE_APP_ID GOOGLE_SECURE_KEY
   passport.authenticate('google', {
     scope: 'email',
   })(req, res, next);
@@ -129,7 +131,7 @@ router.get('/registration/google/callback', (req, res, next) => {
 
     if (!req.user) {
       let user = await User.findOne({
-        where: { socialId: userData.id, provider: userData.provider },
+        where: { socialId: userData.id, provider: userData.provider }, // google ids are numbers
       });
 
       if (!user) {
