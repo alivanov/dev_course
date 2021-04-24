@@ -34,13 +34,13 @@ module.exports = (passport) => {
         if (user) {
           //https://github.com/mikenicholson/passport-jwt/issues/191
           if (Date.now() > jwt_payload.exp) {
-            return done(null, false, { message: 'token expired!' });
+            return done(null, false, { message: 'token expired!', user: { _id: user._id } }); // in case both access & refresh tokens expired send user to be able to logout :(
           }
 
           return done(null, user);
-        } else {
-          return done(null, false, { message: 'User not found' });
         }
+
+        return done(null, false, { message: 'User not found' });
       });
     }),
   );

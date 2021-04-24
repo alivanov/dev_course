@@ -1,0 +1,18 @@
+{
+  "development": {
+    "db": "mongodb://127.0.0.1:27017/refresh_tokens_auth_db",
+    "jwt": {
+      "secret": "jwt very secret",
+      "tokens": {
+        "access": {
+          "type": "access",
+          "expiresIn": "2m"
+        },
+        "refresh": {
+          "type": "refresh",
+          "expiresIn": "1d"
+        }
+      }
+    }
+  }
+}

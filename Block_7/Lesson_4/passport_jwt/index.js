@@ -1,6 +1,6 @@
 /*
   1. npm run keys:generate
-  2. mpm run start:dev
+  2. npm run start:dev
 */
 
 const express = require('express');
@@ -46,6 +46,14 @@ app.use(cors());
 
 // Imports all of the routes from ./routes/index.js
 app.use(require('./routes'));
+
+app.use(function (req, res) {
+  res.status(404).send({ message: 'Opppps.... wrong way!' });
+});
+
+app.use((err, req, res) => {
+  res.status(500).send({ message: err.message });
+});
 
 /**
  * -------------- SERVER ----------------

@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      return res.status(401).json(info);
+      return res.status(401).json({ message: info });
     }
 
     try {

@@ -7,35 +7,43 @@ const RefreshToken = mongoose.model('RefreshToken');
 const utils = require('../lib/utils');
 
 const issueTokensPair = async (userId) => {
-  const newRefreshToken = new RefreshToken({
-    user: userId,
-    token: utils.issueRefreshToken(),
-  });
+  try {
+    const newRefreshToken = new RefreshToken({
+      user: userId,
+      token: utils.issueRefreshToken(),
+    });
 
-  const refreshToken = await newRefreshToken.save();
-  const tokenObject = utils.issueJWT(userId);
+    const refreshToken = await newRefreshToken.save();
+    const tokenObject = utils.issueJWT(userId);
 
-  return {
-    token: tokenObject.token,
-    expiresIn: tokenObject.expiresIn,
-    refresh: refreshToken,
-  };
+    return {
+      token: tokenObject.token,
+      expiresIn: tokenObject.expiresIn,
+      refresh: refreshToken,
+    };
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 router.post('/refresh', async (req, res, next) => {
   const { refreshToken } = req.body;
 
   try {
-    const dbToken = await RefreshToken.find({ token: refreshToken });
-    if (!dbToken) {
+    const refreshTokenData = await RefreshToken.findOne({ token: refreshToken });
+    if (!refreshTokenData) {
       return res.status(404).json({
         message: 'Refresh token not found',
       });
     }
 
+    if (!utils.verifyRefreshToken(refreshTokenData.token)) {
+      return res.status(401).json({ message: 'Invalid refresh token or token expired!' });
+    }
+
     await RefreshToken.deleteOne({ token: refreshToken });
 
-    const tokenPair = await issueTokensPair(dbToken.user);
+    const tokenPair = await issueTokensPair(refreshTokenData.user);
 
     res.status(200).json({
       success: true,
@@ -102,18 +110,22 @@ router.post('/logout', (req, res, next) => {
     if (err) {
       return next(err);
     }
-    if (!user) {
-      return res.status(401).json(info);
-    }
 
-    try {
-      await RefreshToken.deleteMany({ user: user._id });
+    if (user || info.user) {
+      // both access & refresh tokens expired :(
+      const id = user._id || info.user._id;
 
-      res.status(200).json({
-        success: true,
-      });
-    } catch (err) {
-      next(err);
+      try {
+        await RefreshToken.deleteMany({ user: id });
+
+        res.status(200).json({
+          success: true,
+        });
+      } catch (err) {
+        next(err);
+      }
+    } else {
+      return res.status(401).json({ message: info });
     }
   })(req, res, next);
 });
