@@ -50,7 +50,7 @@ function genPassword(password) {
 function issueJWT(user) {
   const _id = user._id;
 
-  const expiresIn = '1d';
+  const expiresIn = 1000 * 60 * 60 * 24; // 1 day
 
   const payload = {
     sub: _id,
