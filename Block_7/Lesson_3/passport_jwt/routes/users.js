@@ -23,7 +23,7 @@ router.post('/login', (req, res, next) => {
 
         res
           .status(200)
-          .json({ success: true, token: tokenObject.token, expiresIn: tokenObject.expires });
+          .json({ success: true, token: tokenObject.token, expiresIn: tokenObject.expiresIn });
       } else {
         res.status(401).json({ success: false, msg: 'you entered the wrong password' });
       }
@@ -51,7 +51,7 @@ router.post('/register', (req, res, next) => {
       const tokenObject = utils.issueJWT(user);
       res
         .status(200)
-        .json({ success: true, token: tokenObject.token, expiresIn: tokenObject.expires });
+        .json({ success: true, token: tokenObject.token, expiresIn: tokenObject.expiresIn });
     });
   } catch (err) {
     res.json({ success: false, msg: err });

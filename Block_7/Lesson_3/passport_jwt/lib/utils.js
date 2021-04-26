@@ -50,21 +50,20 @@ function genPassword(password) {
 function issueJWT(user) {
   const _id = user._id;
 
-  const expiresIn = 1000 * 60 * 60 * 24; // 1 day
+  const expiresIn = '2m';
 
   const payload = {
     sub: _id,
-    iat: Date.now(),
   };
 
   const signedToken = jsonwebtoken.sign(payload, PRIV_KEY, {
-    expiresIn: expiresIn,
+    expiresIn,
     algorithm: 'RS256',
   });
 
   return {
     token: 'Bearer ' + signedToken,
-    expires: expiresIn,
+    expiresIn,
   };
 }
 
