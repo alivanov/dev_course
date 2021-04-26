@@ -12,8 +12,12 @@ module.exports = (req, res, next) => {
 
   try {
     const data = jwt.verify(token, jwtSecret);
-    console.log('data decrypted', data);
+    console.log('data decrypted', data); // iat & exp are in seconds here...
   } catch (e) {
+    if (e instanceof jwt.TokenExpiredError) {
+      return res.status(401).json({ message: 'Token expired!' });
+    }
+
     if (e instanceof jwt.JsonWebTokenError) {
       return res.status(401).json({ message: 'Invalid token!' });
     }

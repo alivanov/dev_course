@@ -7,15 +7,12 @@ const { isValidPassword, genPasswordHash } = require('../lib/passwordUtils');
 const User = mongoose.model('User');
 
 const createToken = (userId) => {
-  const now = Date.now();
-
   return jwt.sign(
     {
       userId: userId,
-      iat: now,
-      exp: now + 1000 * 60 * 15, // in 15 mins
     },
     jwtSecret,
+    { expiresIn: '3m' }, //token will expire in 3 minutes
   );
 };
 
