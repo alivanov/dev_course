@@ -12,8 +12,6 @@ const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(), //'Authorization' header is expected in the format: 'Bearer <access_token>'
   secretOrKey: PUB_KEY,
   algorithms: ['RS256'],
-  //https://github.com/mikenicholson/passport-jwt/issues/191
-  ignoreExpiration: false,
 };
 
 // index.js will pass the global passport object here, and this function will configure it
@@ -32,11 +30,6 @@ module.exports = (passport) => {
         }
 
         if (user) {
-          //https://github.com/mikenicholson/passport-jwt/issues/191
-          if (Date.now() > jwt_payload.exp) {
-            return done(null, false, { message: 'token expired!', user: { _id: user._id } }); // in case both access & refresh tokens expired send user to be able to logout :(
-          }
-
           return done(null, user);
         }
 

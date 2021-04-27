@@ -58,11 +58,10 @@ const genToken = (payload, expiresIn) => {
  * @param {*} user - The user object.  We need this to set the JWT `sub` payload property to the MongoDB user ID
  */
 function issueJWT(id) {
-  const expiresIn = 1000 * 60 * 2; //in 2 mins (expiration value is specified in ms)
+  const expiresIn = '2m';
 
   const payload = {
     sub: id,
-    iat: Date.now(),
   };
 
   return {
@@ -72,19 +71,18 @@ function issueJWT(id) {
 }
 
 function issueRefreshToken() {
-  const expiresIn = 1000 * 60 * 5; //in 5 mins (expiration value is specified in ms)
+  const expiresIn = '5m';
 
-  const payload = { token: uuid(), iat: Date.now() };
+  const payload = { token: uuid() };
 
   return genToken(payload, expiresIn);
 }
 
-function verifyRefreshToken(token) {
+function verifyToken(token, ignoreExpiration = false) {
   try {
-    console.log(token);
-    const payload = jwt.verify(token, PUB_KEY);
-    console.log('refresh token verified successfully!', payload);
-    return true;
+    const payload = jwt.verify(token, PUB_KEY, { ignoreExpiration });
+    console.log('Token verified!', payload);
+    return payload;
   } catch (e) {
     return false;
   }
@@ -94,4 +92,4 @@ module.exports.validPassword = validPassword;
 module.exports.genPassword = genPassword;
 module.exports.issueJWT = issueJWT;
 module.exports.issueRefreshToken = issueRefreshToken;
-module.exports.verifyRefreshToken = verifyRefreshToken;
+module.exports.verifyToken = verifyToken;

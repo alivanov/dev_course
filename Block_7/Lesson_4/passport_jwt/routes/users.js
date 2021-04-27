@@ -9,7 +9,7 @@ router.get('/', async (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      return res.status(401).json({ message: info });
+      return res.status(401).json({ message: info.message });
     }
 
     try {
@@ -17,7 +17,11 @@ router.get('/', async (req, res, next) => {
 
       res
         .status(200)
-        .json({ success: true, msg: 'You are successfully authenticated to this route!', users });
+        .json({
+          success: true,
+          message: 'You are successfully authenticated to this route!',
+          users,
+        });
     } catch (err) {
       next(err);
     }

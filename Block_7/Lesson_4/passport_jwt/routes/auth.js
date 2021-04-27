@@ -3,6 +3,7 @@ const router = require('express').Router();
 const passport = require('passport');
 const User = mongoose.model('User');
 const RefreshToken = mongoose.model('RefreshToken');
+const jwt = require('jsonwebtoken');
 
 const utils = require('../lib/utils');
 
@@ -37,7 +38,7 @@ router.post('/refresh', async (req, res, next) => {
       });
     }
 
-    if (!utils.verifyRefreshToken(refreshTokenData.token)) {
+    if (!utils.verifyToken(refreshTokenData.token)) {
       return res.status(401).json({ message: 'Invalid refresh token or token expired!' });
     }
 
@@ -59,7 +60,7 @@ router.post('/login', async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.body.username });
     if (!user) {
-      return res.status(401).json({ success: false, msg: 'could not find user' });
+      return res.status(401).json({ success: false, message: 'could not find user' });
     }
 
     const isValid = utils.validPassword(req.body.password, user.hash, user.salt);
@@ -72,7 +73,7 @@ router.post('/login', async (req, res, next) => {
         ...tokenPair,
       });
     } else {
-      res.status(401).json({ success: false, msg: 'you entered the wrong password' });
+      res.status(401).json({ success: false, message: 'you entered the wrong password' });
     }
   } catch (err) {
     next(err);
@@ -101,33 +102,32 @@ router.post('/register', async (req, res, next) => {
       ...tokenPair,
     });
   } catch (err) {
-    res.json({ success: false, msg: err });
+    res.json({ success: false, message: err });
   }
 });
 
-router.post('/logout', (req, res, next) => {
-  passport.authenticate('jwt', { session: false }, async (err, user, info) => {
-    if (err) {
-      return next(err);
-    }
+// user logs out using his access (expired?) token
+// refresh token might be expired as well
+// both tokens might be stolen
+router.post('/logout', async (req, res, next) => {
+  const authHeader = req.get('Authorization');
 
-    if (user || info.user) {
-      // both access & refresh tokens expired :(
-      const id = user._id || info.user._id;
+  if (!authHeader) {
+    return res.status(401).json({ message: 'Token not provided!' });
+  }
 
-      try {
-        await RefreshToken.deleteMany({ user: id });
+  const token = authHeader.replace('Bearer ', '');
+  const data = utils.verifyToken(token, true); //ignore expiration here
 
-        res.status(200).json({
-          success: true,
-        });
-      } catch (err) {
-        next(err);
-      }
-    } else {
-      return res.status(401).json({ message: info });
-    }
-  })(req, res, next);
+  try {
+    await RefreshToken.deleteMany({ user: data.sub });
+
+    res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
