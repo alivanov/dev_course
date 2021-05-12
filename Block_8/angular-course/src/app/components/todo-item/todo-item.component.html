@@ -1,7 +1,7 @@
 <li class="todo-item">
   <div class="view" [ngClass]="{ completed: todoItem.status }">
     <label>
-      <input type="checkbox" [checked]="todoItem.status">
+      <input type="checkbox" [checked]="todoItem.status" (click)="toggleTodo()">
       {{todoItem.text}}
     </label>
     <button class="destroy"></button>

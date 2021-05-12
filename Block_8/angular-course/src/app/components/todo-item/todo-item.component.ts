@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class TodoItemComponent {
   todoItem = { id: 1, text: 'Learn Angular', status: false };
+
+  toggleTodo(): void {
+    this.todoItem.status = !this.todoItem.status;
+    console.log(this.todoItem.status);
+  }
 }
