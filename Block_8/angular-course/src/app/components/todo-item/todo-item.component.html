@@ -1,7 +1,9 @@
-<p>{{todoTitle}}</p>
-<hr>
-<div>{{1 + 1}}</div>
-<hr>
-<div>{{getMaxNumber()}}</div>
-<hr>
-<div>{{todoItem.text}}</div>
+<li class="todo-item">
+  <div class="view" [ngClass]="{ completed: todoItem.status }">
+    <label>
+      <input type="checkbox" [checked]="todoItem.status">
+      {{todoItem.text}}
+    </label>
+    <button class="destroy"></button>
+  </div>
+</li>

@@ -1,5 +1,72 @@
-p {
-  color: red;
-  font-size: 33px;
-  padding-top: 15px;
+.todo-item {
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+  list-style-type: none;
+  background-color: #fff;
+
+  .view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    word-break: break-all;
+    padding: 15px 15px 15px 60px;
+    line-height: 1.2;
+    transition: color 0.4s;
+
+    label {
+      user-select: none;
+      width: 100%;
+    }
+
+    input[type="checkbox"] {
+      text-align: center;
+      outline: none;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      margin: auto 0;
+      border: none;
+      appearance: none;
+      background-image: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E);
+      background-repeat: no-repeat;
+
+      &:checked {
+        background-image: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E);
+      }
+    }
+
+    .destroy {
+      width: 40px;
+      height: 40px;
+      font-size: 30px;
+      color: #cc9a9a;
+      transition: color 0.2s ease-out;
+      outline: none;
+      border: 0;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        color: #af5b5e;
+      }
+    }
+
+    &:hover {
+      .destroy:after {
+        content: '×';
+      }
+    }
+
+    &.completed {
+      label {
+        color: #d9d9d9;
+        text-decoration: line-through;
+      }
+    }
+  }
 }
