@@ -14,5 +14,7 @@
 </header>
 
 <ul class="todo-list">
-  {{newTodoText}}
+  <ng-container *ngFor="let item of randomArray">
+    <app-todo-item *ngIf="item < 3"></app-todo-item>
+  </ng-container>
 </ul>

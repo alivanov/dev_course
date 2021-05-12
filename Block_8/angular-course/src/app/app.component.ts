@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   newTodoText = '';
+
+  randomArray = [...Array(10).keys()];
 }
