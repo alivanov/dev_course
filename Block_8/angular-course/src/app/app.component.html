@@ -1,1 +1,18 @@
-<app-todo-item></app-todo-item>
+<header class="header">
+  <h1 class="header-title">todos</h1>
+  <div class="new-todo">
+    <label for="new-todo"></label>
+    <input id="new-todo"
+           class="new-todo-input"
+           type="text"
+           placeholder="What needs to be done?"
+           autocomplete="off"
+           name="newTodoText"
+           [(ngModel)]="newTodoText"
+    />
+  </div>
+</header>
+
+<ul class="todo-list">
+  {{newTodoText}}
+</ul>

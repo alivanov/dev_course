@@ -10,6 +10,5 @@ export class TodoItemComponent {
 
   toggleTodo(): void {
     this.todoItem.status = !this.todoItem.status;
-    console.log(this.todoItem.status);
   }
 }
