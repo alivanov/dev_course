@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 import { IAdditionStyles } from '../types/interfaces';
 
 @Directive({
@@ -17,7 +17,7 @@ export class StyleDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    this.r.setStyle(this.el.nativeElement, 'color', this.textColor);
+    // this.r.setStyle(this.el.nativeElement, 'color', this.textColor);
   }
 
   @HostListener('mouseover') mouseOver() {
@@ -28,12 +28,16 @@ export class StyleDirective implements OnInit {
     this.removeShadow();
   }
 
+  @HostBinding('style.color') elColor = null;
+
   setShadow() {
-    this.r.setStyle(this.el.nativeElement, 'transition', this.dStyles.transition)
-    this.r.setStyle(this.el.nativeElement, 'boxShadow', this.dStyles.boxShadow);
+    this.elColor = this.textColor;
+    // this.r.setStyle(this.el.nativeElement, 'transition', this.dStyles.transition);
+    // this.r.setStyle(this.el.nativeElement, 'boxShadow', this.dStyles.boxShadow);
   }
 
   removeShadow() {
-    this.r.setStyle(this.el.nativeElement, 'boxShadow', null);
+    this.elColor = null;
+    // this.r.setStyle(this.el.nativeElement, 'boxShadow', null);
   }
 }
