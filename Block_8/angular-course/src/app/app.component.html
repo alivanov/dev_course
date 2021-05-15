@@ -27,43 +27,13 @@
 <!--  </app-todo-item>-->
 <!--</ul>-->
 
-<h3>{{e}}</h3>
+<h3>{{5 | multBy: 3}}</h3>
 
-<h3>{{e | number}}</h3>
-
-<h3>{{e | number: '1.1-5'}}</h3>
-
-<h3>{{ e | number:'3.1-2' }}</h3>
-
-<h3>{{ e | number:'1.0-0' }}</h3>
+<h3>{{5 | multBy: 5}}</h3>
 
 <hr>
 
-<h3>{{ str | uppercase }}</h3>
+<h3>{{'short string' | cutString}}</h3>
 
-<h3>{{ str | lowercase }}</h3>
-
-<h3>{{ str | lowercase | uppercase | titlecase }}</h3>
-
-<h3>{{ str | slice: 1 }}</h3>
-
-<h3>{{ str | slice: 1: 5 }}</h3>
-
-<h3>{{ str | slice: 1: -2 }}</h3>
-
-<hr>
-
-<h3>{{date}}</h3>
-
-<h3>{{date | date}}</h3>
-
-<h3>{{date | date: 'H:mm'}}</h3>
-
-<hr>
-
-<h3>{{exampleObject}}</h3>
-
-<h3>{{exampleObject | json}}</h3>
-
-<pre>{{exampleObject | json}}</pre>
+<h3>{{'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi aspernatur corporis dicta' | cutString: 30}}</h3>
 

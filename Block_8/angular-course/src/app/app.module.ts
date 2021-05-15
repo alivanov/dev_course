@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { FormsModule } from '@angular/forms';
 import { StyleDirective } from './directives/style.directive';
+import { MultByPipe } from './pipes/mult-by.pipe';
+import { CutStringPipe } from './pipes/cut-string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoItemComponent,
-    StyleDirective
+    StyleDirective,
+    MultByPipe,
+    CutStringPipe
   ],
   imports: [
     BrowserModule,

@@ -16,21 +16,6 @@ export class AppComponent implements OnInit {
     { id: 4, text: 'Learn Angular', status: false },
   ];
 
-  e = Math.E;
-
-  str = 'Hello world';
-
-  date = new Date();
-
-  exampleObject = {
-    prop_1: 'value_1',
-    other_prop: 2,
-    obj_prop: {
-      test_1: 1,
-      test_2: 2
-    }
-  }
-
   @ViewChild('todoInput', { static: true })
   todoInput: ElementRef;
 
