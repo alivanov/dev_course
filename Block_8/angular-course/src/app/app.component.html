@@ -1,28 +1,69 @@
-<header class="header">
-  <h1 class="header-title">todos</h1>
-  <div class="new-todo">
-    <label for="new-todo"></label>
-    <input id="new-todo"
-           class="new-todo-input"
-           type="text"
-           placeholder="What needs to be done?"
-           autocomplete="off"
-           name="newTodoText"
-           (keyup.enter)="addTodo()"
-           [(ngModel)]="newTodoText"
-           #todoInput
-    />
-  </div>
-</header>
+<!--<header class="header">-->
+<!--  <h3 class="header-title">todos</h3>-->
+<!--  <div class="new-todo">-->
+<!--    <label for="new-todo"></label>-->
+<!--    <input id="new-todo"-->
+<!--           class="new-todo-input"-->
+<!--           type="text"-->
+<!--           placeholder="What needs to be done?"-->
+<!--           autocomplete="off"-->
+<!--           name="newTodoText"-->
+<!--           (keyup.enter)="addTodo()"-->
+<!--           [(ngModel)]="newTodoText"-->
+<!--           #todoInput-->
+<!--    />-->
+<!--  </div>-->
+<!--</header>-->
 
-<ul class="todo-list">
-  <app-todo-item *ngFor="let todo of todoList"
-                 [todoItem]="todo"
-                 (removeTodo)="removeTodo($event)"
-  >
-    <div #info>
-      <small *ngIf="todo.text.length > 20">(Too long todo)</small>
-    </div>
+<!--<ul class="todo-list">-->
+<!--  <app-todo-item *ngFor="let todo of todoList"-->
+<!--                 [todoItem]="todo"-->
+<!--                 (removeTodo)="removeTodo($event)"-->
+<!--  >-->
+<!--    <div #info>-->
+<!--      <small *ngIf="todo.text.length > 20">(Too long todo)</small>-->
+<!--    </div>-->
 
-  </app-todo-item>
-</ul>
+<!--  </app-todo-item>-->
+<!--</ul>-->
+
+<h3>{{e}}</h3>
+
+<h3>{{e | number}}</h3>
+
+<h3>{{e | number: '1.1-5'}}</h3>
+
+<h3>{{ e | number:'3.1-2' }}</h3>
+
+<h3>{{ e | number:'1.0-0' }}</h3>
+
+<hr>
+
+<h3>{{ str | uppercase }}</h3>
+
+<h3>{{ str | lowercase }}</h3>
+
+<h3>{{ str | lowercase | uppercase | titlecase }}</h3>
+
+<h3>{{ str | slice: 1 }}</h3>
+
+<h3>{{ str | slice: 1: 5 }}</h3>
+
+<h3>{{ str | slice: 1: -2 }}</h3>
+
+<hr>
+
+<h3>{{date}}</h3>
+
+<h3>{{date | date}}</h3>
+
+<h3>{{date | date: 'H:mm'}}</h3>
+
+<hr>
+
+<h3>{{exampleObject}}</h3>
+
+<h3>{{exampleObject | json}}</h3>
+
+<pre>{{exampleObject | json}}</pre>
+
