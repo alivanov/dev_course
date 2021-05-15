@@ -3,6 +3,7 @@
     <label>
       <input type="checkbox" [checked]="todoItem.status" (click)="toggleTodo()">
       {{todoItem.text}}
+      <ng-content></ng-content>
     </label>
     <button class="destroy" (click)="removeTodo.emit(todoItem.id)"></button>
   </div>

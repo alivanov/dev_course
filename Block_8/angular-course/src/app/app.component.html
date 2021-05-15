@@ -19,5 +19,7 @@
   <app-todo-item *ngFor="let todo of todoList"
                  [todoItem]="todo"
                  (removeTodo)="removeTodo($event)"
-  ></app-todo-item>
+  >
+    <small *ngIf="todo.text.length > 20">(Too long todo)</small>
+  </app-todo-item>
 </ul>
