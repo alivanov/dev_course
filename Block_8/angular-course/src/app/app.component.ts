@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ITodo } from './types/interfaces';
 
 @Component({
@@ -6,7 +6,7 @@ import { ITodo } from './types/interfaces';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   newTodoText = '';
 
   todoList: ITodo[] = [
@@ -15,6 +15,13 @@ export class AppComponent {
     { id: 3, text: 'Smoke a cigarette', status: false },
     { id: 4, text: 'Learn Angular', status: false },
   ];
+
+  @ViewChild('todoInput', { static: true })
+  todoInput: ElementRef;
+
+  ngOnInit(): void {
+    this.focusTodoInput();
+  }
 
   addTodo(): void {
     const newTodoText = this.newTodoText.trim();
@@ -45,5 +52,9 @@ export class AppComponent {
     }
 
     return 1;
+  }
+
+  private focusTodoInput(): void {
+    this.todoInput.nativeElement.focus();
   }
 }
