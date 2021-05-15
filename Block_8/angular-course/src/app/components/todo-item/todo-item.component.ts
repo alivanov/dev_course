@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ITodo } from '../../types/interfaces';
 
 @Component({
   selector: 'app-todo-item',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent {
-  todoItem = { id: 1, text: 'Learn Angular', status: false };
+
+  @Input()
+  todoItem: ITodo;
 
   toggleTodo(): void {
     this.todoItem.status = !this.todoItem.status;
