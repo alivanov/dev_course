@@ -16,7 +16,34 @@ export class AppComponent {
     { id: 4, text: 'Learn Angular', status: false },
   ];
 
+  addTodo(): void {
+    const newTodoText = this.newTodoText.trim();
+
+    if (newTodoText) {
+      const newTodo = this.createTodo(newTodoText);
+      this.todoList.push(newTodo);
+      this.clearTodoInput();
+    }
+  }
+
   removeTodo(id: number): void {
     this.todoList = this.todoList.filter((todo) => todo.id !== id);
+  }
+
+  private clearTodoInput(): void {
+    this.newTodoText = '';
+  }
+
+  private createTodo(content: string): ITodo {
+    const id = this.findLastId() + 1;
+    return { id, text: content, status: false };
+  }
+
+  private findLastId(): number {
+    if (this.todoList.length) {
+      return Math.max(...this.todoList.map((item) => item.id));
+    }
+
+    return 1;
   }
 }

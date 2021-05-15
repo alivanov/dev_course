@@ -8,6 +8,7 @@
            placeholder="What needs to be done?"
            autocomplete="off"
            name="newTodoText"
+           (keyup.enter)="addTodo()"
            [(ngModel)]="newTodoText"
     />
   </div>
