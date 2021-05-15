@@ -1,4 +1,4 @@
-<li class="todo-item">
+<li class="todo-item" appStyle>
   <div class="view" [ngClass]="{ completed: todoItem.status }">
     <label>
       <input type="checkbox" [checked]="todoItem.status" (click)="toggleTodo()">
