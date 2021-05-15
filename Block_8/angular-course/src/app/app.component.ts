@@ -15,4 +15,8 @@ export class AppComponent {
     { id: 3, text: 'Smoke a cigarette', status: false },
     { id: 4, text: 'Learn Angular', status: false },
   ];
+
+  removeTodo(id: number): void {
+    this.todoList = this.todoList.filter((todo) => todo.id !== id);
+  }
 }

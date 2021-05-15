@@ -4,6 +4,6 @@
       <input type="checkbox" [checked]="todoItem.status" (click)="toggleTodo()">
       {{todoItem.text}}
     </label>
-    <button class="destroy"></button>
+    <button class="destroy" (click)="removeTodo.emit(todoItem.id)"></button>
   </div>
 </li>

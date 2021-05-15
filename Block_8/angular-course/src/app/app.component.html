@@ -14,7 +14,8 @@
 </header>
 
 <ul class="todo-list">
-  <ng-container *ngFor="let todo of todoList">
-    <app-todo-item [todoItem]="todo"></app-todo-item>
-  </ng-container>
+  <app-todo-item *ngFor="let todo of todoList"
+                 [todoItem]="todo"
+                 (removeTodo)="removeTodo($event)"
+  ></app-todo-item>
 </ul>

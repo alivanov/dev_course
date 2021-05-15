@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ITodo } from '../../types/interfaces';
 
 @Component({
@@ -10,6 +10,9 @@ export class TodoItemComponent {
 
   @Input()
   todoItem: ITodo;
+
+  @Output()
+  removeTodo = new EventEmitter<number>();
 
   toggleTodo(): void {
     this.todoItem.status = !this.todoItem.status;
