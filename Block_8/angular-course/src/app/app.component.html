@@ -20,6 +20,9 @@
                  [todoItem]="todo"
                  (removeTodo)="removeTodo($event)"
   >
-    <small *ngIf="todo.text.length > 20">(Too long todo)</small>
+    <div #info>
+      <small *ngIf="todo.text.length > 20">(Too long todo)</small>
+    </div>
+
   </app-todo-item>
 </ul>
