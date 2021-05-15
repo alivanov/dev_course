@@ -3,3 +3,8 @@ export interface ITodo {
   text: string;
   status: boolean;
 }
+
+export interface IAdditionStyles {
+  boxShadow?: string;
+  transition?: string;
+}

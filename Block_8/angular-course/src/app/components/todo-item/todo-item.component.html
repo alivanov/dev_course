@@ -1,4 +1,4 @@
-<li class="todo-item" appStyle="red">
+<li class="todo-item" appStyle="red" [dStyles]="{ boxShadow: 'inset 0px 0px 8px 3px rgb(60 60 60 / 25%)', transition: 'box-shadow .3s linear' }">
   <div class="view" [ngClass]="{ completed: todoItem.status }">
     <label>
       <input type="checkbox" [checked]="todoItem.status" (click)="toggleTodo()">
