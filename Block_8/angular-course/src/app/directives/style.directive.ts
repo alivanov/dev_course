@@ -1,11 +1,19 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appStyle]'
 })
-export class StyleDirective {
-  constructor(private el: ElementRef, private r: Renderer2) {
-    this.r.setStyle(this.el.nativeElement, 'color', 'red');
+export class StyleDirective implements OnInit {
+
+  @Input('appStyle')
+  textColor = 'black';
+
+  constructor(private el: ElementRef,
+              private r: Renderer2) {
+  }
+
+  ngOnInit(): void {
+    this.r.setStyle(this.el.nativeElement, 'color', this.textColor);
   }
 
   @HostListener('mouseover') mouseOver() {
