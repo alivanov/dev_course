@@ -1,39 +1,28 @@
-<!--<header class="header">-->
-<!--  <h3 class="header-title">todos</h3>-->
-<!--  <div class="new-todo">-->
-<!--    <label for="new-todo"></label>-->
-<!--    <input id="new-todo"-->
-<!--           class="new-todo-input"-->
-<!--           type="text"-->
-<!--           placeholder="What needs to be done?"-->
-<!--           autocomplete="off"-->
-<!--           name="newTodoText"-->
-<!--           (keyup.enter)="addTodo()"-->
-<!--           [(ngModel)]="newTodoText"-->
-<!--           #todoInput-->
-<!--    />-->
-<!--  </div>-->
-<!--</header>-->
+<header class="header">
+  <h3 class="header-title">todos</h3>
+  <div class="new-todo">
+    <label for="new-todo"></label>
+    <input id="new-todo"
+           class="new-todo-input"
+           type="text"
+           placeholder="What needs to be done?"
+           autocomplete="off"
+           name="newTodoText"
+           (keyup.enter)="addTodo()"
+           [(ngModel)]="newTodoText"
+    />
+  </div>
+</header>
 
-<!--<ul class="todo-list">-->
-<!--  <app-todo-item *ngFor="let todo of todoList"-->
-<!--                 [todoItem]="todo"-->
-<!--                 (removeTodo)="removeTodo($event)"-->
-<!--  >-->
-<!--    <div #info>-->
-<!--      <small *ngIf="todo.text.length > 20">(Too long todo)</small>-->
-<!--    </div>-->
+<ul class="todo-list">
+  <app-todo-item *ngFor="let todo of todoList | filter: newTodoText"
+                 [todoItem]="todo"
+                 (removeTodo)="removeTodo($event)"
+  >
+    <div #info>
+      <small *ngIf="todo.text.length > 20">(Too long todo)</small>
+    </div>
 
-<!--  </app-todo-item>-->
-<!--</ul>-->
-
-<h3>{{5 | multBy: 3}}</h3>
-
-<h3>{{5 | multBy: 5}}</h3>
-
-<hr>
-
-<h3>{{'short string' | cutString}}</h3>
-
-<h3>{{'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi aspernatur corporis dicta' | cutString: 30}}</h3>
+  </app-todo-item>
+</ul>
 

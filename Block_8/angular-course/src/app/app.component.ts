@@ -16,11 +16,11 @@ export class AppComponent implements OnInit {
     { id: 4, text: 'Learn Angular', status: false },
   ];
 
-  @ViewChild('todoInput', { static: true })
-  todoInput: ElementRef;
+  // @ViewChild('todoInput', { static: true })
+  // todoInput: ElementRef;
 
   ngOnInit(): void {
-    this.focusTodoInput();
+    // this.focusTodoInput();
   }
 
   addTodo(): void {
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     if (newTodoText) {
       const newTodo = this.createTodo(newTodoText);
       this.todoList.push(newTodo);
-      this.clearTodoInput();
+      // this.clearTodoInput();
     }
   }
 
@@ -55,6 +55,6 @@ export class AppComponent implements OnInit {
   }
 
   private focusTodoInput(): void {
-    this.todoInput.nativeElement.focus();
+    // this.todoInput.nativeElement.focus();
   }
 }

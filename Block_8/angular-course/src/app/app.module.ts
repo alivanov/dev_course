@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { StyleDirective } from './directives/style.directive';
 import { MultByPipe } from './pipes/mult-by.pipe';
 import { CutStringPipe } from './pipes/cut-string.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CutStringPipe } from './pipes/cut-string.pipe';
     TodoItemComponent,
     StyleDirective,
     MultByPipe,
-    CutStringPipe
+    CutStringPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
