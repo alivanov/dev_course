@@ -3,6 +3,7 @@ import { ITodo } from '../types/interfaces';
 
 @Pipe({
   name: 'filter',
+  pure: false
 })
 export class FilterPipe implements PipeTransform {
   transform(todos: ITodo[], filterString: string): ITodo[] {
