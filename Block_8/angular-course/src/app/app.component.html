@@ -8,14 +8,16 @@
            placeholder="What needs to be done?"
            autocomplete="off"
            name="newTodoText"
+           disabled
            (keyup.enter)="addTodo()"
            [(ngModel)]="newTodoText"
+           #todoInput
     />
   </div>
 </header>
 
 <ul class="todo-list">
-  <app-todo-item *ngFor="let todo of todoList | filter: newTodoText"
+  <app-todo-item *ngFor="let todo of todoList | async"
                  [todoItem]="todo"
                  (removeTodo)="removeTodo($event)"
   >
