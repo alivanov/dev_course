@@ -6,6 +6,4 @@
    - https://www.youtube.com/watch?v=CyTWPr_WwdI
    - https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
 
-2. Постановка задачи “дипломной работы”: trello, GIF manager
-   - https://vk.com/wall-101965347_243539?hash=e3002a32c511f22d3c
-   - https://www.youtube.com/watch?v=I6ypD7qv3Z8
+2. App uses a db from docker container
