@@ -9,6 +9,8 @@ import { StyleDirective } from './directives/style.directive';
 import { MultByPipe } from './pipes/mult-by.pipe';
 import { CutStringPipe } from './pipes/cut-string.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LocalCounterOneComponent } from './components/local-counter-one/local-counter-one.component';
+import { LocalCounterTwoComponent } from './components/local-counter-two/local-counter-two.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     StyleDirective,
     MultByPipe,
     CutStringPipe,
-    FilterPipe
+    FilterPipe,
+    LocalCounterOneComponent,
+    LocalCounterTwoComponent
   ],
   imports: [
     BrowserModule,

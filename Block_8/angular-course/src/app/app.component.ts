@@ -4,8 +4,7 @@ import { CounterService } from './services/counter.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [CounterService]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
