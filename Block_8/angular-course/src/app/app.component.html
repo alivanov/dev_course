@@ -1,30 +1,6 @@
-<header class="header">
-  <h3 class="header-title">todos</h3>
-  <div class="new-todo">
-    <label for="new-todo"></label>
-    <input id="new-todo"
-           class="new-todo-input"
-           type="text"
-           placeholder="What needs to be done?"
-           autocomplete="off"
-           name="newTodoText"
-           disabled
-           (keyup.enter)="addTodo()"
-           [(ngModel)]="newTodoText"
-           #todoInput
-    />
-  </div>
-</header>
-
-<ul class="todo-list">
-  <app-todo-item *ngFor="let todo of todoList | async"
-                 [todoItem]="todo"
-                 (removeTodo)="removeTodo($event)"
-  >
-    <div #info>
-      <small *ngIf="todo.text.length > 20">(Too long todo)</small>
-    </div>
-
-  </app-todo-item>
-</ul>
+<h1>Angular Services</h1>
+<hr>
+<button (click)="counterService.increase()">Increase</button> | <button (click)="counterService.decrease()">Decrease</button>
+<br><br>
+<p>Current counter value: {{counterService.counter}}</p>
 
