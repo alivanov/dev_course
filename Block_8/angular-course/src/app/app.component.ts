@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IWebToDo } from './types/interfaces';
 import { HttpClient } from '@angular/common/http';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -15,32 +16,33 @@ export class AppComponent implements OnInit {
   @ViewChild('todoInput', { static: true })
   todoInput: ElementRef;
 
-  constructor(private httpClient:HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
     this.focusTodoInput();
     this.httpClient.get('https://jsonplaceholder.typicode.com/todos?_limit=4')
+      .pipe(delay(5000))
       .subscribe((todos) => this.todoList = todos as IWebToDo[]);
   }
 
   addTodo(): void {
-      const newTodoText = this.newTodoText.trim();
+    const newTodoText = this.newTodoText.trim();
 
-      if (newTodoText) {
-        const newTodo = this.createTodo(newTodoText);
-        this.httpClient.post('https://jsonplaceholder.typicode.com/todos', newTodo)
-          .subscribe(() => {
-            this.todoList.push(newTodo);
-            this.clearTodoInput();
-          });
-      }
+    if (newTodoText) {
+      const newTodo = this.createTodo(newTodoText);
+      this.httpClient.post('https://jsonplaceholder.typicode.com/todos', newTodo)
+        .subscribe(() => {
+          this.todoList.push(newTodo);
+          this.clearTodoInput();
+        });
+    }
   }
 
   removeTodo(id: number): void {
     this.httpClient.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
       .subscribe(() => {
         this.todoList = this.todoList.filter((todo) => todo.id !== id);
-      })
+      });
   }
 
   private clearTodoInput(): void {

@@ -16,10 +16,15 @@
 </header>
 
 <ul class="todo-list">
-  <app-todo-item *ngFor="let todo of todoList"
-                 [todoItem]="todo"
-                 (removeTodo)="removeTodo($event)"
-  >
-  </app-todo-item>
+  <ng-container *ngIf="todoList; else loader">
+    <app-todo-item *ngFor="let todo of todoList"
+                   [todoItem]="todo"
+                   (removeTodo)="removeTodo($event)"
+    >
+    </app-todo-item>
+  </ng-container>
 </ul>
 
+<ng-template #loader>
+  <h1 style="text-align: center">Loading...</h1>
+</ng-template>
