@@ -1,5 +1,5 @@
 import { Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ITodo } from '../../types/interfaces';
+import { IWebToDo } from '../../types/interfaces';
 
 @Component({
   selector: 'app-todo-item',
@@ -9,7 +9,7 @@ import { ITodo } from '../../types/interfaces';
 export class TodoItemComponent implements OnInit {
 
   @Input()
-  todoItem: ITodo;
+  todoItem: IWebToDo;
 
   @Output()
   removeTodo = new EventEmitter<number>();
@@ -24,6 +24,6 @@ export class TodoItemComponent implements OnInit {
   }
 
   toggleTodo(): void {
-    this.todoItem.status = !this.todoItem.status;
+    this.todoItem.completed = !this.todoItem.completed;
   }
 }

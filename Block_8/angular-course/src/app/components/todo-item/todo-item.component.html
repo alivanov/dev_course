@@ -1,8 +1,8 @@
 <li class="todo-item" appStyle="red" [dStyles]="{ boxShadow: 'inset 0px 0px 8px 3px rgb(60 60 60 / 25%)', transition: 'box-shadow .3s linear' }">
-  <div class="view" [ngClass]="{ completed: todoItem.status }">
+  <div class="view" [ngClass]="{ completed: todoItem.completed }">
     <label>
-      <input type="checkbox" [checked]="todoItem.status" (click)="toggleTodo()">
-      {{todoItem.text}}
+      <input type="checkbox" [checked]="todoItem.completed" (click)="toggleTodo()">
+      {{todoItem.title}}
       <ng-content></ng-content>
     </label>
     <button class="destroy" (click)="removeTodo.emit(todoItem.id)"></button>

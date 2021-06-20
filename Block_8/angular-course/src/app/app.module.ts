@@ -11,6 +11,7 @@ import { CutStringPipe } from './pipes/cut-string.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LocalCounterOneComponent } from './components/local-counter-one/local-counter-one.component';
 import { LocalCounterTwoComponent } from './components/local-counter-two/local-counter-two.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LocalCounterTwoComponent } from './components/local-counter-two/local-c
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
