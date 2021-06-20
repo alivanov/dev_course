@@ -8,6 +8,7 @@
            placeholder="What needs to be done?"
            autocomplete="off"
            name="newTodoText"
+           [disabled]="isSubmitting"
            (keyup.enter)="addTodo()"
            [(ngModel)]="newTodoText"
            #todoInput

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IWebToDo } from './types/interfaces';
-import { HttpClient } from '@angular/common/http';
-import { delay } from 'rxjs/operators';
+import { TodoService } from './services/todo.service';
+import { delay, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -11,17 +11,23 @@ import { delay } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   newTodoText = '';
 
+  isSubmitting = false;
+
   todoList: IWebToDo[];
 
   @ViewChild('todoInput', { static: true })
   todoInput: ElementRef;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
     this.focusTodoInput();
-    this.httpClient.get('https://jsonplaceholder.typicode.com/todos?_limit=4')
-      .pipe(delay(5000))
+    this.isSubmitting = true;
+    this.todoService.getTodos$()
+      .pipe(
+        delay(1000),
+        finalize(() => this.isSubmitting = false)
+      )
       .subscribe((todos) => this.todoList = todos as IWebToDo[]);
   }
 
@@ -30,19 +36,22 @@ export class AppComponent implements OnInit {
 
     if (newTodoText) {
       const newTodo = this.createTodo(newTodoText);
-      this.httpClient.post('https://jsonplaceholder.typicode.com/todos', newTodo)
-        .subscribe(() => {
-          this.todoList.push(newTodo);
-          this.clearTodoInput();
-        });
+      this.isSubmitting = true;
+      this.todoService.createTodo$(newTodo)
+        .pipe(
+          finalize(() => {
+            this.clearTodoInput();
+            this.isSubmitting = false;
+          })
+        )
+        .subscribe(() => this.todoList.push(newTodo));
     }
   }
 
   removeTodo(id: number): void {
-    this.httpClient.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-      .subscribe(() => {
-        this.todoList = this.todoList.filter((todo) => todo.id !== id);
-      });
+    this.isSubmitting = true;
+    this.todoService.removeTodo$(id)
+      .subscribe(() => this.todoList = this.todoList.filter((todo) => todo.id !== id));
   }
 
   private clearTodoInput(): void {
