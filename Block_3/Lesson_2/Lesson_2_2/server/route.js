@@ -14,7 +14,8 @@ router.get('/health', timeout('5s'), (req, res) => {
   res.status(200).end();
 });
 
-router.get('/todos', (req, res) => {
+router.get('/todos', (req, res, next) => {
+  //return next('Oppppppsssss!!!');
   const todos = require('./data/todos.json');
   res.json(todos);
 });

@@ -67,6 +67,12 @@ app.use(function(req, res) {
   res.status(404).send('PAGE NOT FOUND!');
 });
 
+//https://expressjs.com/en/guide/error-handling.html
+app.use(function(err, req, res, next) {
+  res.statusMessage = err.toString();
+  res.status(500).end();
+});
+
 app.listen(config.port, () => {
   console.log(`Example app listening at http://localhost:${config.port}`);
 })
