@@ -15,7 +15,7 @@ export class PostsService {
     { title: 'Post 4', text: 'Sample text for post 4', id: 44 },
   ];
 
-  getById(id: number) {
+  getById(id: number): Post {
     return this.posts.find(p => p.id === id);
   }
 }
