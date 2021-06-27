@@ -1,31 +1,25 @@
-<header class="header">
-  <h3 class="header-title">todos</h3>
-  <div class="new-todo">
-    <label for="new-todo"></label>
-    <input id="new-todo"
-           class="new-todo-input"
-           type="text"
-           placeholder="What needs to be done?"
-           autocomplete="off"
-           name="newTodoText"
-           [disabled]="isSubmitting"
-           (keyup.enter)="addTodo()"
-           [(ngModel)]="newTodoText"
-           #todoInput
-    />
+<nav class="navbar">
+  <h1>
+    <a href="#">Angular Routing</a>
+  </h1>
+  <ul>
+    <li class="active">
+      <a href="#">Home</a>
+    </li>
+    <li><a href="#">Posts</a></li>
+    <li><a href="#">About</a></li>
+    <li><button class="btn">Login</button></li>
+    <li><button class="btn">Logout</button></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="card">
+
+    <router-outlet></router-outlet>
+
   </div>
-</header>
+</div>
 
-<ul class="todo-list">
-  <ng-container *ngIf="todoList; else loader">
-    <app-todo-item *ngFor="let todo of todoList"
-                   [todoItem]="todo"
-                   (removeTodo)="removeTodo($event)"
-    >
-    </app-todo-item>
-  </ng-container>
-</ul>
 
-<ng-template #loader>
-  <h1 style="text-align: center">Loading...</h1>
-</ng-template>
+

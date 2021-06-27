@@ -1,0 +1,17 @@
+<h1>Posts page</h1>
+
+<button class="btn">
+  Show Ids
+</button>
+<button class="btn">
+  Show Ids (program)
+</button>
+
+<div class="card" *ngFor="let post of postsService.posts">
+  <h4>
+    <a href="#">
+      <strong>(ID {{post.id}})</strong>
+      {{post.title}}
+    </a>
+  </h4>
+</div>
