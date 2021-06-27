@@ -1,37 +1,31 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoItemComponent } from './components/todo-item/todo-item.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StyleDirective } from './directives/style.directive';
-import { MultByPipe } from './pipes/mult-by.pipe';
-import { CutStringPipe } from './pipes/cut-string.pipe';
-import { FilterPipe } from './pipes/filter.pipe';
-import { LocalCounterOneComponent } from './components/local-counter-one/local-counter-one.component';
-import { LocalCounterTwoComponent } from './components/local-counter-two/local-counter-two.component';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostComponent } from './post/post.component';
+import { AboutExtraComponent } from './about-extra/about-extra.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoItemComponent,
-    StyleDirective,
-    MultByPipe,
-    CutStringPipe,
-    FilterPipe,
-    LocalCounterOneComponent,
-    LocalCounterTwoComponent
+    AboutComponent,
+    HomeComponent,
+    PostsComponent,
+    PostComponent,
+    AboutExtraComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
